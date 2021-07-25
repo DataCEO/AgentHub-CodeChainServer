@@ -15,4 +15,6 @@ use super::super::common_rpc_types::{
     StructuredLog,
 };
 use super::super::db;
+use super::super::jsonrpc;
+use super::super::rpc::RPCResult;
 use s
