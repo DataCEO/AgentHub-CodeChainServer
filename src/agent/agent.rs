@@ -10,4 +10,5 @@ use serde_json;
 use serde_json::Value;
 use ws::CloseCode as WSCloseCode;
 
-use
+use super::super::common_rpc_types::{
+    BlockId, HardwareInfo, NodeName, Nod
