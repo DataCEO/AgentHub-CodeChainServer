@@ -17,4 +17,5 @@ use super::super::common_rpc_types::{
 use super::super::db;
 use super::super::jsonrpc;
 use super::super::rpc::RPCResult;
-use s
+use super::codechain_rpc::CodeChainRPC;
+use super::ser
