@@ -18,4 +18,5 @@ use super::super::db;
 use super::super::jsonrpc;
 use super::super::rpc::RPCResult;
 use super::codechain_rpc::CodeChainRPC;
-use super::ser
+use super::service::{Message as ServiceMessage, ServiceSender};
+use super::types::{Agent
