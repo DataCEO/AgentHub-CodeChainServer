@@ -19,4 +19,6 @@ use super::super::jsonrpc;
 use super::super::rpc::RPCResult;
 use super::codechain_rpc::CodeChainRPC;
 use super::service::{Message as ServiceMessage, ServiceSender};
-use super::types::{Agent
+use super::types::{AgentGetInfoResponse, CodeChainCallRPCResponse};
+
+#[derive(Clone, PartialE
