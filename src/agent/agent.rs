@@ -21,4 +21,7 @@ use super::codechain_rpc::CodeChainRPC;
 use super::service::{Message as ServiceMessage, ServiceSender};
 use super::types::{AgentGetInfoResponse, CodeChainCallRPCResponse};
 
-#[derive(Clone, PartialE
+#[derive(Clone, PartialEq, Debug)]
+pub enum State {
+    Initializing,
+    Normal {
