@@ -25,3 +25,5 @@ use super::types::{AgentGetInfoResponse, CodeChainCallRPCResponse};
 pub enum State {
     Initializing,
     Normal {
+        name: NodeName,
+        address: Option<Sock
