@@ -26,4 +26,8 @@ pub enum State {
     Initializing,
     Normal {
         name: NodeName,
-        address: Option<Sock
+        address: Option<SocketAddr>,
+        status: NodeStatus,
+    },
+    Stop {
+        
