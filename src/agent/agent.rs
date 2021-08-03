@@ -30,4 +30,5 @@ pub enum State {
         status: NodeStatus,
     },
     Stop {
-        
+        name: NodeName,
+        address: Option<SocketAddr>,
