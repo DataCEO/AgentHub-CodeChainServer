@@ -39,4 +39,9 @@ pub enum State {
 
 #[derive(Copy, Clone, PartialEq, Debug)]
 pub enum StopCause {
-    Already
+    AlreadyConnected,
+}
+
+impl State {
+    pub fn new() -> Self {
+ 
