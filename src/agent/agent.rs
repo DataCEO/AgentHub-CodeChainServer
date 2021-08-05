@@ -32,3 +32,9 @@ pub enum State {
     Stop {
         name: NodeName,
         address: Option<SocketAddr>,
+        status: NodeStatus,
+        cause: StopCause,
+    },
+}
+
+#[derive(Copy, Clo
