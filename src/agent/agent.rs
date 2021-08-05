@@ -37,4 +37,6 @@ pub enum State {
     },
 }
 
-#[derive(Copy, Clo
+#[derive(Copy, Clone, PartialEq, Debug)]
+pub enum StopCause {
+    Already
