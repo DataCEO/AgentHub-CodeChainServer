@@ -44,4 +44,7 @@ pub enum StopCause {
 
 impl State {
     pub fn new() -> Self {
- 
+        State::Initializing
+    }
+
+    //    pub fn status(&self) -> O
