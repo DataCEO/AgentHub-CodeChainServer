@@ -49,4 +49,6 @@ impl State {
 
     //    pub fn status(&self) -> Option<NodeStatus> {
     //        match self {
-    //            State::I
+    //            State::Initializing => None,
+    //            State::Normal {
+    
