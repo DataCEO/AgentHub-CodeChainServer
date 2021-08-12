@@ -51,4 +51,6 @@ impl State {
     //        match self {
     //            State::Initializing => None,
     //            State::Normal {
-    
+    //                status,
+    //                ..
+    //            
