@@ -66,4 +66,7 @@ impl State {
     //            State::Initializing => None,
     //            State::Normal {
     //                address,
-    //               
+    //                ..
+    //            } => *address,
+    //        }
+    //
