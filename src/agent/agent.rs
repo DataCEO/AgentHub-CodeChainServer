@@ -53,4 +53,6 @@ impl State {
     //            State::Normal {
     //                status,
     //                ..
+    //            } => Some(*status),
+    //            State::Stop {
     //            
