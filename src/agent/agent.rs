@@ -55,4 +55,6 @@ impl State {
     //                ..
     //            } => Some(*status),
     //            State::Stop {
-    //            
+    //                status,
+    //                ..
+    //            } => Some(*
