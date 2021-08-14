@@ -64,4 +64,6 @@ impl State {
     //    pub fn address(&self) -> Option<SocketAddr> {
     //        match self {
     //            State::Initializing => None,
-    //            State::
+    //            State::Normal {
+    //                address,
+    //               
