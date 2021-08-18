@@ -71,4 +71,6 @@ impl State {
     //        }
     //    }
     //
-    pub fn name(&self) -> Option<NodeN
+    pub fn name(&self) -> Option<NodeName> {
+        match self {
+            State::Initializing => No
