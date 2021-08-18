@@ -69,4 +69,6 @@ impl State {
     //                ..
     //            } => *address,
     //        }
+    //    }
     //
+    pub fn name(&self) -> Option<NodeN
