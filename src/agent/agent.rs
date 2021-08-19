@@ -73,4 +73,7 @@ impl State {
     //
     pub fn name(&self) -> Option<NodeName> {
         match self {
-            State::Initializing => No
+            State::Initializing => None,
+            State::Normal {
+                name,
+       
