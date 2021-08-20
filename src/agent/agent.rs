@@ -76,4 +76,6 @@ impl State {
             State::Initializing => None,
             State::Normal {
                 name,
-       
+                ..
+            } => Some(name.clone()),
+            
