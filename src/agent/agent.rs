@@ -93,4 +93,7 @@ pub struct AgentSender {
 }
 
 impl AgentSender {
-    pub fn new(jsonrpc_context: jsonrpc::Context, state: Arc<RwLock<State>
+    pub fn new(jsonrpc_context: jsonrpc::Context, state: Arc<RwLock<State>>) -> Self {
+        Self {
+            jsonrpc_context,
+         
