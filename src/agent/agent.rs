@@ -81,4 +81,9 @@ impl State {
             State::Stop {
                 name,
                 ..
-       
+            } => Some(name.clone()),
+        }
+    }
+}
+
+#[derive(Clone
