@@ -78,4 +78,7 @@ impl State {
                 name,
                 ..
             } => Some(name.clone()),
-            
+            State::Stop {
+                name,
+                ..
+       
