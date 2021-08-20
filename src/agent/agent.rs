@@ -89,3 +89,8 @@ impl State {
 #[derive(Clone)]
 pub struct AgentSender {
     jsonrpc_context: jsonrpc::Context,
+    state: Arc<RwLock<State>>,
+}
+
+impl AgentSender {
+    pub fn 
