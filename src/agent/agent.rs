@@ -86,4 +86,6 @@ impl State {
     }
 }
 
-#[derive(Clone
+#[derive(Clone)]
+pub struct AgentSender {
+    jsonrpc_context: jsonrpc::Context,
