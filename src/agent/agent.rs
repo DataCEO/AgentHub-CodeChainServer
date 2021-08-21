@@ -108,4 +108,5 @@ impl AgentSender {
 pub struct Agent {
     id: i32,
     sender: AgentSender,
-    stat
+    state: Arc<RwLock<State>>,
+    service_sender: ServiceSender
