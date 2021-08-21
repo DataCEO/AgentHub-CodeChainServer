@@ -100,4 +100,7 @@ impl AgentSender {
         }
     }
 
-    pub fn read_state(&self
+    pub fn read_state(&self) -> RwLockReadGuard<State> {
+        self.state.read()
+    }
+}
