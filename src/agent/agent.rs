@@ -119,4 +119,11 @@ pub enum AgentCleanupReason {
     Error(String),
     #[allow(dead_code)]
     Success,
-    AlreadyConnect
+    AlreadyConnected,
+    Unexpected,
+}
+
+impl Agent {
+    fn new(
+        id: i32,
+  
