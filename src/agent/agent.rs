@@ -109,4 +109,7 @@ pub struct Agent {
     id: i32,
     sender: AgentSender,
     state: Arc<RwLock<State>>,
-    service_sender: ServiceSender
+    service_sender: ServiceSender,
+    closed: bool,
+    db_service: db::ServiceSender,
+    codec
