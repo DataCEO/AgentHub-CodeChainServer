@@ -104,3 +104,8 @@ impl AgentSender {
         self.state.read()
     }
 }
+
+pub struct Agent {
+    id: i32,
+    sender: AgentSender,
+    stat
