@@ -126,4 +126,5 @@ pub enum AgentCleanupReason {
 impl Agent {
     fn new(
         id: i32,
-  
+        jsonrpc_context: jsonrpc::Context,
+        service_se
