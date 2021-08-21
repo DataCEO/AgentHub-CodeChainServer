@@ -112,4 +112,8 @@ pub struct Agent {
     service_sender: ServiceSender,
     closed: bool,
     db_service: db::ServiceSender,
-    codec
+    codechain_rpc: CodeChainRPC,
+}
+
+pub enum AgentCleanupReason {
+    Error
