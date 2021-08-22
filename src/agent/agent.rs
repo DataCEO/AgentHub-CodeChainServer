@@ -131,4 +131,5 @@ impl Agent {
         db_service: db::ServiceSender,
     ) -> Self {
         let state = Arc::new(RwLock::new(State::new()));
+        let sender = AgentSender::new(jsonrpc_context, Arc::clone(&state));
  
