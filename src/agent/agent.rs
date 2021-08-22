@@ -129,4 +129,6 @@ impl Agent {
         jsonrpc_context: jsonrpc::Context,
         service_sender: ServiceSender,
         db_service: db::ServiceSender,
-    ) 
+    ) -> Self {
+        let state = Arc::new(RwLock::new(State::new()));
+ 
