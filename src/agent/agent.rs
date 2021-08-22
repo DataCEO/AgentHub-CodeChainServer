@@ -127,4 +127,6 @@ impl Agent {
     fn new(
         id: i32,
         jsonrpc_context: jsonrpc::Context,
-        service_se
+        service_sender: ServiceSender,
+        db_service: db::ServiceSender,
+    ) 
