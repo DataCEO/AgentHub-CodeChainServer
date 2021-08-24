@@ -132,4 +132,7 @@ impl Agent {
     ) -> Self {
         let state = Arc::new(RwLock::new(State::new()));
         let sender = AgentSender::new(jsonrpc_context, Arc::clone(&state));
- 
+        Self {
+            id,
+            state,
+         
