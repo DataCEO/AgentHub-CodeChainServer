@@ -135,4 +135,6 @@ impl Agent {
         Self {
             id,
             state,
-         
+            sender: sender.clone(),
+            service_sender,
+            closed: f
