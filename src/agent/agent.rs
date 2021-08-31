@@ -144,4 +144,6 @@ impl Agent {
     }
 
     pub fn run_thread(
+        id: i32,
+        jsonrpc_context: jsonrpc::Context,
        
