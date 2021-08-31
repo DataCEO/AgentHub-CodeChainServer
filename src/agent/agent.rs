@@ -137,4 +137,6 @@ impl Agent {
             state,
             sender: sender.clone(),
             service_sender,
-            closed: f
+            closed: false,
+            db_service,
+            codechain_rpc: CodeCha
