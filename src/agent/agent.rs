@@ -139,4 +139,9 @@ impl Agent {
             service_sender,
             closed: false,
             db_service,
-            codechain_rpc: CodeCha
+            codechain_rpc: CodeChainRPC::new(sender),
+        }
+    }
+
+    pub fn run_thread(
+       
