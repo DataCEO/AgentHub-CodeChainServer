@@ -147,4 +147,6 @@ impl Agent {
         id: i32,
         jsonrpc_context: jsonrpc::Context,
         service_sender: ServiceSender,
-        db_service: db::ServiceSe
+        db_service: db::ServiceSender,
+    ) -> AgentSender {
+        let mut agent =
