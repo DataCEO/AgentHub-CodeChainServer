@@ -149,4 +149,4 @@ impl Agent {
         service_sender: ServiceSender,
         db_service: db::ServiceSender,
     ) -> AgentSender {
-        let mut agent =
+        let mut agent = Self::new(id, jsonrpc_context, service_sender, db_service);
