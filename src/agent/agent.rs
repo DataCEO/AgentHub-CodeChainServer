@@ -150,3 +150,6 @@ impl Agent {
         db_service: db::ServiceSender,
     ) -> AgentSender {
         let mut agent = Self::new(id, jsonrpc_context, service_sender, db_service);
+        let sender = agent.sender.clone();
+
+        thre
