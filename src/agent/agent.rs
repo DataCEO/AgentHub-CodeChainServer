@@ -153,4 +153,6 @@ impl Agent {
         let sender = agent.sender.clone();
 
         thread::Builder::new()
-            .name(format!("agen
+            .name(format!("agent-{}", id))
+            .spawn(move || match agent.run() {
+ 
