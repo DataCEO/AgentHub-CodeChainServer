@@ -152,4 +152,5 @@ impl Agent {
         let mut agent = Self::new(id, jsonrpc_context, service_sender, db_service);
         let sender = agent.sender.clone();
 
-        thre
+        thread::Builder::new()
+            .name(format!("agen
