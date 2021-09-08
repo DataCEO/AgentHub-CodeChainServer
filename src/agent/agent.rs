@@ -155,4 +155,5 @@ impl Agent {
         thread::Builder::new()
             .name(format!("agent-{}", id))
             .spawn(move || match agent.run() {
- 
+                Ok(StopCause::AlreadyConnected) => {
+           
