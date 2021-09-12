@@ -156,4 +156,7 @@ impl Agent {
             .name(format!("agent-{}", id))
             .spawn(move || match agent.run() {
                 Ok(StopCause::AlreadyConnected) => {
-                    agent.clean_up(AgentCleanupReason::AlreadyConnected
+                    agent.clean_up(AgentCleanupReason::AlreadyConnected);
+                }
+                Err(err) => {
+             
