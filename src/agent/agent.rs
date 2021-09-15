@@ -159,4 +159,5 @@ impl Agent {
                     agent.clean_up(AgentCleanupReason::AlreadyConnected);
                 }
                 Err(err) => {
-             
+                    cerror!("Agent failed : {}", err);
+                    agent.cl
