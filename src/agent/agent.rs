@@ -160,4 +160,5 @@ impl Agent {
                 }
                 Err(err) => {
                     cerror!("Agent failed : {}", err);
-                    agent.cl
+                    agent.clean_up(AgentCleanupReason::Error(err));
+                }
