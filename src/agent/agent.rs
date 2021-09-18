@@ -177,4 +177,7 @@ impl Agent {
             ..
         } = *self.state.read()
         {
-         
+            return Ok(cause)
+        }
+        self.service_sender
+            .send(
