@@ -163,4 +163,9 @@ impl Agent {
                     agent.clean_up(AgentCleanupReason::Error(err));
                 }
             })
-            .expect("Should success running agent thr
+            .expect("Should success running agent thread");
+
+        sender
+    }
+
+    fn run(&mut self) -> Result<
