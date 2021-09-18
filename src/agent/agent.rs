@@ -168,4 +168,5 @@ impl Agent {
         sender
     }
 
-    fn run(&mut self) -> Result<
+    fn run(&mut self) -> Result<StopCause, String> {
+        cinfo!("Agent-{} started", s
