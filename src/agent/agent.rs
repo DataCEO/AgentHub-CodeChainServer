@@ -162,3 +162,5 @@ impl Agent {
                     cerror!("Agent failed : {}", err);
                     agent.clean_up(AgentCleanupReason::Error(err));
                 }
+            })
+            .expect("Should success running agent thr
