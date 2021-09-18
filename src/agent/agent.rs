@@ -169,4 +169,8 @@ impl Agent {
     }
 
     fn run(&mut self) -> Result<StopCause, String> {
-        cinfo!("Agent-{} started", s
+        cinfo!("Agent-{} started", self.id);
+
+        self.update()?;
+        if let State::Stop {
+   
