@@ -180,4 +180,5 @@ impl Agent {
             return Ok(cause)
         }
         self.service_sender
-            .send(
+            .send(ServiceMessage::AddAgent(self.id, self.sender.clone()))
+            
