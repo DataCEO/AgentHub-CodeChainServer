@@ -181,4 +181,6 @@ impl Agent {
         }
         self.service_sender
             .send(ServiceMessage::AddAgent(self.id, self.sender.clone()))
-            
+            .map_err(|err| format!("AddAgent failed {}", err))?;
+
+        //
