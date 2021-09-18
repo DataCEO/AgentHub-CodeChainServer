@@ -183,4 +183,6 @@ impl Agent {
             .send(ServiceMessage::AddAgent(self.id, self.sender.clone()))
             .map_err(|err| format!("AddAgent failed {}", err))?;
 
-        //
+        // get prev data from db
+        // if exist, run it.
+   
