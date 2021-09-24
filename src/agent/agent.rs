@@ -185,4 +185,4 @@ impl Agent {
 
         // get prev data from db
         // if exist, run it.
-   
+        let name = self.state.read().name().expect("Updated");
