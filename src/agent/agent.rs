@@ -187,4 +187,5 @@ impl Agent {
         // if exist, run it.
         let name = self.state.read().name().expect("Updated");
 
-        if let Ok(Some(extra)) = self.db_service.get_agent_
+        if let Ok(Some(extra)) = self.db_service.get_agent_extra(name) {
+            match ::std::env::var("START_AT_CONNECT") 
