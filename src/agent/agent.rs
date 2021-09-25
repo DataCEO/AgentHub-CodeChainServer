@@ -191,4 +191,5 @@ impl Agent {
             match ::std::env::var("START_AT_CONNECT") {
                 Ok(_) => {
                     if let Err(err) = self.sender.shell_start_codechain(ShellStartCodeChainRequest {
-  
+                        env: extra.prev_env,
+                   
