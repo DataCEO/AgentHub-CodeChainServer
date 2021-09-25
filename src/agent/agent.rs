@@ -196,4 +196,6 @@ impl Agent {
                     }) {
                         cerror!("Cannot start CodeChain {}", err);
                     }
-  
+                }
+                Err(_) => {
+                   
