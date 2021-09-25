@@ -204,4 +204,5 @@ impl Agent {
         }
 
         loop {
-            ctrace!("A
+            ctrace!("Agent-{} update", self.id);
+            self.upda
