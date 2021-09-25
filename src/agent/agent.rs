@@ -192,4 +192,6 @@ impl Agent {
                 Ok(_) => {
                     if let Err(err) = self.sender.shell_start_codechain(ShellStartCodeChainRequest {
                         env: extra.prev_env,
-                   
+                        args: extra.prev_args,
+                    }) {
+         
