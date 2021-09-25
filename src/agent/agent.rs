@@ -190,4 +190,5 @@ impl Agent {
         if let Ok(Some(extra)) = self.db_service.get_agent_extra(name) {
             match ::std::env::var("START_AT_CONNECT") {
                 Ok(_) => {
-                    if let Err(
+                    if let Err(err) = self.sender.shell_start_codechain(ShellStartCodeChainRequest {
+  
