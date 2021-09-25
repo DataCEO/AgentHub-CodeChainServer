@@ -194,4 +194,6 @@ impl Agent {
                         env: extra.prev_env,
                         args: extra.prev_args,
                     }) {
-         
+                        cerror!("Cannot start CodeChain {}", err);
+                    }
+  
