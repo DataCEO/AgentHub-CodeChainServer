@@ -198,4 +198,5 @@ impl Agent {
                     }
                 }
                 Err(_) => {
-                   
+                    cinfo!("Do not start CodeChain at connected");
+                }
