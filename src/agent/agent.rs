@@ -205,4 +205,7 @@ impl Agent {
 
         loop {
             ctrace!("Agent-{} update", self.id);
-            self.upda
+            self.update()?;
+            if let State::Stop {
+                cause,
+  
