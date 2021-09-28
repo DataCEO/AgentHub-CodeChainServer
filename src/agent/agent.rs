@@ -208,4 +208,6 @@ impl Agent {
             self.update()?;
             if let State::Stop {
                 cause,
-  
+                ..
+            } = *self.state.read()
+   
