@@ -210,4 +210,7 @@ impl Agent {
                 cause,
                 ..
             } = *self.state.read()
-   
+            {
+                return Ok(cause)
+            }
+       
