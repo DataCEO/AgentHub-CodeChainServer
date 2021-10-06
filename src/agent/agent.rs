@@ -221,4 +221,6 @@ impl Agent {
         let info = self.sender.agent_get_info().map_err(|err| format!("{}", err))?;
 
         let mut state = self.state.write();
-        let new
+        let new_state = State::Normal {
+            name: info.name.clone(),
+ 
