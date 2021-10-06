@@ -217,4 +217,5 @@ impl Agent {
         }
     }
 
-   
+    fn update(&mut self) -> Result<(), String> {
+        let info 
