@@ -218,4 +218,7 @@ impl Agent {
     }
 
     fn update(&mut self) -> Result<(), String> {
-        let info = self.sender.agent_get_info().map_err(|err| format!("{}", e
+        let info = self.sender.agent_get_info().map_err(|err| format!("{}", err))?;
+
+        let mut state = self.state.write();
+        let new
