@@ -218,4 +218,4 @@ impl Agent {
     }
 
     fn update(&mut self) -> Result<(), String> {
-        let info 
+        let info = self.sender.agent_get_info().map_err(|err| format!("{}", e
