@@ -228,4 +228,6 @@ impl Agent {
         };
 
         if let State::Initializing = *state {
-            let
+            let success = self
+                .db_service
+                .initialize_agent_qu
