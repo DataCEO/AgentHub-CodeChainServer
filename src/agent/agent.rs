@@ -223,4 +223,6 @@ impl Agent {
         let mut state = self.state.write();
         let new_state = State::Normal {
             name: info.name.clone(),
- 
+            address: info.address,
+            status: info.status,
+   
