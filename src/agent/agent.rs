@@ -225,4 +225,7 @@ impl Agent {
             name: info.name.clone(),
             address: info.address,
             status: info.status,
-   
+        };
+
+        if let State::Initializing = *state {
+            let
