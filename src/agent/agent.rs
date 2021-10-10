@@ -231,4 +231,6 @@ impl Agent {
             let success = self
                 .db_service
                 .initialize_agent_query_result(db::AgentQueryResult {
-                    name: info.
+                    name: info.name.clone(),
+                    status: info.status,
+                 
