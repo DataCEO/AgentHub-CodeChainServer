@@ -230,4 +230,5 @@ impl Agent {
         if let State::Initializing = *state {
             let success = self
                 .db_service
-                .initialize_agent_qu
+                .initialize_agent_query_result(db::AgentQueryResult {
+                    name: info.
