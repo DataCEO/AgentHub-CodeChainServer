@@ -233,4 +233,5 @@ impl Agent {
                 .initialize_agent_query_result(db::AgentQueryResult {
                     name: info.name.clone(),
                     status: info.status,
-                 
+                    address: info.address,
+                    version: Some(Nod
