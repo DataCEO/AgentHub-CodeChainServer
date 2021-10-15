@@ -236,4 +236,5 @@ impl Agent {
                     address: info.address,
                     version: Some(NodeVersion {
                         version: String::new(),
-           
+                        hash: info.codechain_commit_hash,
+     
