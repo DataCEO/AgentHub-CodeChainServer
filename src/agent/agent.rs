@@ -234,4 +234,6 @@ impl Agent {
                     name: info.name.clone(),
                     status: info.status,
                     address: info.address,
-                    version: Some(Nod
+                    version: Some(NodeVersion {
+                        version: String::new(),
+           
