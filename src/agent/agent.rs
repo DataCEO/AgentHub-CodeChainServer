@@ -241,3 +241,6 @@ impl Agent {
                     }),
                     ..Default::default()
                 })
+                .map_err(|_| "DB timeout")?;
+
+            i
