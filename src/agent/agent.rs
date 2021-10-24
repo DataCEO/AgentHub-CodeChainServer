@@ -238,4 +238,6 @@ impl Agent {
                         version: String::new(),
                         hash: info.codechain_commit_hash,
                         binary_checksum: info.codechain_binary_checksum,
-           
+                    }),
+                    ..Default::default()
+                })
