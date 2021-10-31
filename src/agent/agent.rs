@@ -245,3 +245,5 @@ impl Agent {
 
             if !success {
                 *state = State::Stop {
+                    name: info.name.clone(),
+                  
