@@ -243,4 +243,5 @@ impl Agent {
                 })
                 .map_err(|_| "DB timeout")?;
 
-            i
+            if !success {
+                *state = State::Stop {
