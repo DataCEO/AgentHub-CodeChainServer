@@ -246,4 +246,6 @@ impl Agent {
             if !success {
                 *state = State::Stop {
                     name: info.name.clone(),
-                  
+                    address: info.address,
+                    status: info.status,
+     
