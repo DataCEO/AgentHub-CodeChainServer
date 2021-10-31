@@ -248,4 +248,5 @@ impl Agent {
                     name: info.name.clone(),
                     address: info.address,
                     status: info.status,
-     
+                    cause: StopCause::AlreadyConnected,
+          
