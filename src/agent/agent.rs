@@ -249,4 +249,8 @@ impl Agent {
                     address: info.address,
                     status: info.status,
                     cause: StopCause::AlreadyConnected,
-          
+                };
+                return Ok(())
+            }
+
+     
