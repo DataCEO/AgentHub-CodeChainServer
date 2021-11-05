@@ -253,4 +253,8 @@ impl Agent {
                 return Ok(())
             }
 
-     
+            *state = new_state;
+            return Ok(())
+        }
+
+  
