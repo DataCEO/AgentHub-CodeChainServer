@@ -258,4 +258,5 @@ impl Agent {
         }
 
         let peers: Vec<SocketAddr> = self.codechain_rpc.get_peers(info.status)?;
-        let best_block_id: Option<Block
+        let best_block_id: Option<BlockId> = self.codechain_rpc.get_best_block_id(info.status)?;
+        let c
