@@ -262,4 +262,7 @@ impl Agent {
         let codechain_version = self.codechain_rpc.version(info.status)?;
         let codechain_version_hash = self.codechain_rpc.commit_hash(info.status)?;
         let version = codechain_version.and_then(|version| {
-            codechain_version_hash.map(|hash| NodeVersion
+            codechain_version_hash.map(|hash| NodeVersion {
+                version,
+                hash,
+       
