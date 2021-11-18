@@ -268,4 +268,5 @@ impl Agent {
                 binary_checksum: info.codechain_binary_checksum.clone(),
             })
         });
-        let hash = info.c
+        let hash = info.codechain_commit_hash.clone();
+        let version = version.or_else(|
