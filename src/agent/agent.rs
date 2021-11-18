@@ -265,4 +265,7 @@ impl Agent {
             codechain_version_hash.map(|hash| NodeVersion {
                 version,
                 hash,
-                binary_checksum: info.codechain_binary_ch
+                binary_checksum: info.codechain_binary_checksum.clone(),
+            })
+        });
+        let hash = info.c
