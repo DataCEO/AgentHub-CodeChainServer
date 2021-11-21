@@ -271,4 +271,6 @@ impl Agent {
         let hash = info.codechain_commit_hash.clone();
         let version = version.or_else(|| {
             Some(NodeVersion {
-                version: Stri
+                version: String::new(),
+                hash,
+                binar
