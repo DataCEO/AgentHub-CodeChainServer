@@ -275,4 +275,5 @@ impl Agent {
                 hash,
                 binary_checksum: info.codechain_binary_checksum.clone(),
             })
-      
+        });
+        let pending_parcels = self.codechain_rpc.get_pending
