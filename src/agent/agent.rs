@@ -273,4 +273,6 @@ impl Agent {
             Some(NodeVersion {
                 version: String::new(),
                 hash,
-                binar
+                binary_checksum: info.codechain_binary_checksum.clone(),
+            })
+      
