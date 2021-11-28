@@ -277,4 +277,5 @@ impl Agent {
             })
         });
         let pending_parcels = self.codechain_rpc.get_pending_parcels(info.status)?;
-        let whitelist = self.
+        let whitelist = self.codechain_rpc.get_whitelist(info.status)?;
+        let blacklist = self.co
