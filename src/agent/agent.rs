@@ -278,4 +278,5 @@ impl Agent {
         });
         let pending_parcels = self.codechain_rpc.get_pending_parcels(info.status)?;
         let whitelist = self.codechain_rpc.get_whitelist(info.status)?;
-        let blacklist = self.co
+        let blacklist = self.codechain_rpc.get_blacklist(info.status)?;
+        let hardware = se
