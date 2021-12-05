@@ -279,4 +279,4 @@ impl Agent {
         let pending_parcels = self.codechain_rpc.get_pending_parcels(info.status)?;
         let whitelist = self.codechain_rpc.get_whitelist(info.status)?;
         let blacklist = self.codechain_rpc.get_blacklist(info.status)?;
-        let hardware = se
+        let hardware = self.sender.hardware_get().map_err(|err| format!("Agent Update {}", err))?
