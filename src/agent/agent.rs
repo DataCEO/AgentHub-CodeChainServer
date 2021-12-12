@@ -282,4 +282,6 @@ impl Agent {
         let hardware = self.sender.hardware_get().map_err(|err| format!("Agent Update {}", err))?;
 
         ctrace!("Update state from {:?} to {:?}", *state, new_state);
-        self.db_service.update_agent_query_resul
+        self.db_service.update_agent_query_result(db::AgentQueryResult {
+            name: info.name.clone(),
+       
