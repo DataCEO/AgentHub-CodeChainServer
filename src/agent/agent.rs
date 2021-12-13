@@ -284,4 +284,6 @@ impl Agent {
         ctrace!("Update state from {:?} to {:?}", *state, new_state);
         self.db_service.update_agent_query_result(db::AgentQueryResult {
             name: info.name.clone(),
-       
+            status: info.status,
+            address: info.address,
+     
