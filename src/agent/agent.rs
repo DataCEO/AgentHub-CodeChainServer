@@ -289,4 +289,7 @@ impl Agent {
             peers,
             best_block_id,
             version,
-  
+            pending_parcels,
+            whitelist,
+            blacklist,
+     
