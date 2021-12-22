@@ -292,4 +292,6 @@ impl Agent {
             pending_parcels,
             whitelist,
             blacklist,
-     
+            hardware: Some(hardware),
+        });
+        *stat
