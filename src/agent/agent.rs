@@ -299,4 +299,7 @@ impl Agent {
         let logs = self.codechain_rpc.get_logs(info.status)?;
         self.db_service.write_logs(info.name, logs);
 
-     
+        Ok(())
+    }
+
+    fn clean_up(&mut self, reason: AgentCleanupR
