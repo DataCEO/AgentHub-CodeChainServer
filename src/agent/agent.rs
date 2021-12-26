@@ -294,4 +294,6 @@ impl Agent {
             blacklist,
             hardware: Some(hardware),
         });
-        *stat
+        *state = new_state;
+
+        let logs = self.codechain_rpc.get_l
