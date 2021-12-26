@@ -296,4 +296,7 @@ impl Agent {
         });
         *state = new_state;
 
-        let logs = self.codechain_rpc.get_l
+        let logs = self.codechain_rpc.get_logs(info.status)?;
+        self.db_service.write_logs(info.name, logs);
+
+     
