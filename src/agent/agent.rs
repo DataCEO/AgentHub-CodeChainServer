@@ -302,4 +302,6 @@ impl Agent {
         Ok(())
     }
 
-    fn clean_up(&mut self, reason: AgentCleanupR
+    fn clean_up(&mut self, reason: AgentCleanupReason) {
+        if self.closed {
+            return
