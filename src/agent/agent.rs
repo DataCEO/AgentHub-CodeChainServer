@@ -308,4 +308,5 @@ impl Agent {
         }
         self.closed = true;
 
-        let (is_error
+        let (is_error, error_msg) = match reason {
+            AgentCleanupRea
