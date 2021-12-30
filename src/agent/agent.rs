@@ -305,3 +305,7 @@ impl Agent {
     fn clean_up(&mut self, reason: AgentCleanupReason) {
         if self.closed {
             return
+        }
+        self.closed = true;
+
+        let (is_error
