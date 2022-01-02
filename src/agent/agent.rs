@@ -310,4 +310,7 @@ impl Agent {
 
         let (is_error, error_msg) = match reason {
             AgentCleanupReason::Error(err) => {
-                cerror!("Agent cleanuped because {}
+                cerror!("Agent cleanuped because {}", err);
+                (true, err)
+            }
+            AgentCleanupR
