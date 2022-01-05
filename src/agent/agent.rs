@@ -314,4 +314,6 @@ impl Agent {
                 (true, err)
             }
             AgentCleanupReason::Unexpected => {
-                let err = "Unexpected cleanup"
+                let err = "Unexpected cleanup";
+                cerror!("Agent cleanuped because {}", err);
+      
