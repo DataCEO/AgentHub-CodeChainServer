@@ -318,4 +318,5 @@ impl Agent {
                 cerror!("Agent cleanuped because {}", err);
                 (true, err.to_string())
             }
-            Ag
+            AgentCleanupReason::AlreadyConnected => {
+                (
