@@ -321,4 +321,7 @@ impl Agent {
             AgentCleanupReason::AlreadyConnected => {
                 (true, "An agent which has same name is already connected".to_string())
             }
-            AgentCleanupReason::Success => (
+            AgentCleanupReason::Success => (false, "".to_string()),
+        };
+
+        let send_result = self.
