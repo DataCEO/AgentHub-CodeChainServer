@@ -319,4 +319,6 @@ impl Agent {
                 (true, err.to_string())
             }
             AgentCleanupReason::AlreadyConnected => {
-                (true, "An agent which has same name is already connected".to
+                (true, "An agent which has same name is already connected".to_string())
+            }
+            AgentCleanupReason::Success => (
