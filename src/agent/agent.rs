@@ -324,4 +324,6 @@ impl Agent {
             AgentCleanupReason::Success => (false, "".to_string()),
         };
 
-        let send_result = self.service_sender.send(ServiceMessage::RemoveAgent(self.
+        let send_result = self.service_sender.send(ServiceMessage::RemoveAgent(self.id));
+        if let Err(error) = send_result {
+            cerror!("Ag
