@@ -326,4 +326,7 @@ impl Agent {
 
         let send_result = self.service_sender.send(ServiceMessage::RemoveAgent(self.id));
         if let Err(error) = send_result {
-            cerror!("Ag
+            cerror!("Agent cleanup error {}", error);
+        }
+
+        let state = self
