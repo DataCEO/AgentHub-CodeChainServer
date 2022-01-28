@@ -329,4 +329,6 @@ impl Agent {
             cerror!("Agent cleanup error {}", error);
         }
 
-        let state = self
+        let state = self.state.read();
+        if let State::Normal {
+            nam
