@@ -334,4 +334,6 @@ impl Agent {
             name,
             address,
             ..
-        } = &*st
+        } = &*state
+        {
+            self.db_service.update_agent
