@@ -331,4 +331,7 @@ impl Agent {
 
         let state = self.state.read();
         if let State::Normal {
-            nam
+            name,
+            address,
+            ..
+        } = &*st
