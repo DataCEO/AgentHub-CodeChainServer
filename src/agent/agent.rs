@@ -336,4 +336,5 @@ impl Agent {
             ..
         } = &*state
         {
-            self.db_service.update_agent
+            self.db_service.update_agent_query_result(db::AgentQueryResult {
+                name: name.cl
