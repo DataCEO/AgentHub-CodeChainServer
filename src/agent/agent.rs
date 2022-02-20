@@ -339,4 +339,6 @@ impl Agent {
             self.db_service.update_agent_query_result(db::AgentQueryResult {
                 name: name.clone(),
                 status: NodeStatus::Error,
-                add
+                address: *address,
+                ..Default::default()
+            });
