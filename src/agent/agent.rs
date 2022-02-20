@@ -337,4 +337,6 @@ impl Agent {
         } = &*state
         {
             self.db_service.update_agent_query_result(db::AgentQueryResult {
-                name: name.cl
+                name: name.clone(),
+                status: NodeStatus::Error,
+                add
