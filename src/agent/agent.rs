@@ -344,4 +344,6 @@ impl Agent {
             });
         }
 
-        let ws_close_result = self.sender.jsonrpc_cont
+        let ws_close_result = self.sender.jsonrpc_context.ws_sender.close_with_reason(
+            if is_error {
+        
