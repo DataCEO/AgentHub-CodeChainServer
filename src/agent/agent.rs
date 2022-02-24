@@ -342,3 +342,6 @@ impl Agent {
                 address: *address,
                 ..Default::default()
             });
+        }
+
+        let ws_close_result = self.sender.jsonrpc_cont
