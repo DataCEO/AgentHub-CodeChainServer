@@ -360,4 +360,5 @@ impl Agent {
 }
 
 impl Drop for Agent {
- 
+    fn drop(&mut self) {
+        self.clean_up(AgentCleanupReas
