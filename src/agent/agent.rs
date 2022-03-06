@@ -353,4 +353,5 @@ impl Agent {
             error_msg,
         );
 
-        if 
+        if let Err(err) = ws_close_result {
+            cerror!("Agent cleanu
