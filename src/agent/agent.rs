@@ -348,4 +348,9 @@ impl Agent {
             if is_error {
                 WSCloseCode::Error
             } else {
-                WSClos
+                WSCloseCode::Normal
+            },
+            error_msg,
+        );
+
+        if 
