@@ -354,4 +354,10 @@ impl Agent {
         );
 
         if let Err(err) = ws_close_result {
-            cerror!("Agent cleanu
+            cerror!("Agent cleanup error {}", err);
+        }
+    }
+}
+
+impl Drop for Agent {
+ 
