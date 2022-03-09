@@ -361,4 +361,9 @@ impl Agent {
 
 impl Drop for Agent {
     fn drop(&mut self) {
-        self.clean_up(AgentCleanupReas
+        self.clean_up(AgentCleanupReason::Unexpected)
+    }
+}
+
+pub trait SendAgentRPC {
+    fn shell_star
