@@ -367,4 +367,5 @@ impl Drop for Agent {
 
 pub trait SendAgentRPC {
     fn shell_start_codechain(&self, _req: ShellStartCodeChainRequest) -> RPCResult<()>;
-    fn shell_stop_codechain(&self) -> RPCResul
+    fn shell_stop_codechain(&self) -> RPCResult<()>;
+    fn shell_update_codechain(&self, _req: ShellUpdateC
