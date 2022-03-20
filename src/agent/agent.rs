@@ -370,4 +370,4 @@ pub trait SendAgentRPC {
     fn shell_stop_codechain(&self) -> RPCResult<()>;
     fn shell_update_codechain(&self, _req: ShellUpdateCodeChainRequest) -> RPCResult<()>;
     fn shell_get_codechain_log(&self) -> RPCResult<Vec<StructuredLog>>;
-    fn agent_get
+    fn agent_get_info(&self) -> RPCResult<AgentGetInfoResponse>;
