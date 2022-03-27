@@ -372,4 +372,8 @@ pub trait SendAgentRPC {
     fn shell_get_codechain_log(&self) -> RPCResult<Vec<StructuredLog>>;
     fn agent_get_info(&self) -> RPCResult<AgentGetInfoResponse>;
     fn codechain_call_rpc_raw(&self, args: (String, Vec<Value>)) -> RPCResult<CodeChainCallRPCResponse>;
-    fn codechain_call_rpc(&self, args: (String, Vec<Value>)) -> RPCResult<Output
+    fn codechain_call_rpc(&self, args: (String, Vec<Value>)) -> RPCResult<Output>;
+    fn hardware_get(&self) -> RPCResult<HardwareInfo>;
+}
+
+impl SendA
