@@ -376,4 +376,5 @@ pub trait SendAgentRPC {
     fn hardware_get(&self) -> RPCResult<HardwareInfo>;
 }
 
-impl SendA
+impl SendAgentRPC for AgentSender {
+    fn shell_start_codechain(&self, req: S
