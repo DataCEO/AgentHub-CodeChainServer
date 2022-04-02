@@ -377,4 +377,5 @@ pub trait SendAgentRPC {
 }
 
 impl SendAgentRPC for AgentSender {
-    fn shell_start_codechain(&self, req: S
+    fn shell_start_codechain(&self, req: ShellStartCodeChainRequest) -> RPCResult<()> {
+       
