@@ -378,4 +378,4 @@ pub trait SendAgentRPC {
 
 impl SendAgentRPC for AgentSender {
     fn shell_start_codechain(&self, req: ShellStartCodeChainRequest) -> RPCResult<()> {
-       
+        jsonrpc::call_one_arg(self.jsonrpc_context.clone(), "shell_
