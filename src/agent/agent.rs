@@ -384,4 +384,7 @@ impl SendAgentRPC for AgentSender {
 
     fn shell_stop_codechain(&self) -> RPCResult<()> {
         jsonrpc::call_no_arg(self.jsonrpc_context.clone(), "shell_stopCodeChain")?;
-        Ok((
+        Ok(())
+    }
+
+    fn shell_update_codechain(&self, args: ShellUpdateCode
