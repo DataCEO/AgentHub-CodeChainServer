@@ -387,4 +387,5 @@ impl SendAgentRPC for AgentSender {
         Ok(())
     }
 
-    fn shell_update_codechain(&self, args: ShellUpdateCode
+    fn shell_update_codechain(&self, args: ShellUpdateCodeChainRequest) -> RPCResult<()> {
+        jsonrp
