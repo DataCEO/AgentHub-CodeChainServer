@@ -392,4 +392,4 @@ impl SendAgentRPC for AgentSender {
         Ok(())
     }
 
-    fn 
+    fn shell_get_codechain_log(&self) -> RPCResult<Vec<StructuredLog>
