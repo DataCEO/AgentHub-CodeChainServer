@@ -398,4 +398,9 @@ impl SendAgentRPC for AgentSender {
             "shell_getCodeChainLog",
             json!({
               "levels": ["warn", "error"]
-           
+            }),
+        )?;
+        Ok(logs)
+    }
+
+    fn agent_get_info(&se
