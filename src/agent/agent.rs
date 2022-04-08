@@ -392,4 +392,6 @@ impl SendAgentRPC for AgentSender {
         Ok(())
     }
 
-    fn shell_get_codechain_log(&self) -> RPCResult<Vec<StructuredLog>
+    fn shell_get_codechain_log(&self) -> RPCResult<Vec<StructuredLog>> {
+        let logs = jsonrpc::call_one_arg(
+            self.j
