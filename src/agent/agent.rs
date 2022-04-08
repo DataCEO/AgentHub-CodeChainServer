@@ -396,4 +396,6 @@ impl SendAgentRPC for AgentSender {
         let logs = jsonrpc::call_one_arg(
             self.jsonrpc_context.clone(),
             "shell_getCodeChainLog",
-            j
+            json!({
+              "levels": ["warn", "error"]
+           
