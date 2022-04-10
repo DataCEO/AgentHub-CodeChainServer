@@ -403,4 +403,5 @@ impl SendAgentRPC for AgentSender {
         Ok(logs)
     }
 
-    fn agent_get_info(&se
+    fn agent_get_info(&self) -> RPCResult<AgentGetInfoResponse> {
+        let result: Agent
