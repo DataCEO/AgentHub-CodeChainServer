@@ -404,4 +404,4 @@ impl SendAgentRPC for AgentSender {
     }
 
     fn agent_get_info(&self) -> RPCResult<AgentGetInfoResponse> {
-        let result: Agent
+        let result: AgentGetInfoResponse = jsonrpc::call_no_arg(self.jsonrpc_cont
