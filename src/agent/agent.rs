@@ -408,4 +408,5 @@ impl SendAgentRPC for AgentSender {
         Ok(result)
     }
 
-    fn codechain_call_rpc_raw(&self, args: (String, Ve
+    fn codechain_call_rpc_raw(&self, args: (String, Vec<Value>)) -> RPCResult<CodeChainCallRPCResponse> {
+   
