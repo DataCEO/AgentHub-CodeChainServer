@@ -414,4 +414,5 @@ impl SendAgentRPC for AgentSender {
     }
 
     fn codechain_call_rpc(&self, args: (String, Vec<Value>)) -> RPCResult<Output> {
-  
+        let result: CodeChainCallRPCResponse =
+            jsonr
