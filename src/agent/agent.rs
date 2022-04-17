@@ -413,4 +413,5 @@ impl SendAgentRPC for AgentSender {
         Ok(result)
     }
 
-    fn codecha
+    fn codechain_call_rpc(&self, args: (String, Vec<Value>)) -> RPCResult<Output> {
+  
