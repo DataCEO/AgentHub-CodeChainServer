@@ -416,4 +416,8 @@ impl SendAgentRPC for AgentSender {
     fn codechain_call_rpc(&self, args: (String, Vec<Value>)) -> RPCResult<Output> {
         let result: CodeChainCallRPCResponse =
             jsonrpc::call_many_args(self.jsonrpc_context.clone(), "codechain_callRPC", args)?;
-        let output: Output = serde_json::from
+        let output: Output = serde_json::from_value(result.inner_response)?;
+        Ok(output)
+    }
+
+    
