@@ -420,4 +420,5 @@ impl SendAgentRPC for AgentSender {
         Ok(output)
     }
 
-    
+    fn hardware_get(&self) -> RPCResult<HardwareInfo> {
+        le
