@@ -421,4 +421,4 @@ impl SendAgentRPC for AgentSender {
     }
 
     fn hardware_get(&self) -> RPCResult<HardwareInfo> {
-        le
+        let result = jsonrpc::call_no_arg(self.jsonrpc_context.clone(), "hard
