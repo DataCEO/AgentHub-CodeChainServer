@@ -7,4 +7,10 @@ use serde_json::Value;
 
 use super::super::common_rpc_types::{BlackList, BlockId, NodeStatus, PendingParcel, StructuredLog, WhiteList};
 use super::agent::{AgentSender, SendAgentRPC};
-use super::types::ChainGetBestBlockIdRe
+use super::types::ChainGetBestBlockIdResponse;
+
+pub struct CodeChainRPC {
+    sender: AgentSender,
+}
+
+impl CodeChainRPC
