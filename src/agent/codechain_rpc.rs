@@ -20,4 +20,4 @@ impl CodeChainRPC {
         }
     }
 
-    pub fn ge
+    pub fn get_peers(&self, status: NodeStatus) -> Result<Vec<SocketAdd
