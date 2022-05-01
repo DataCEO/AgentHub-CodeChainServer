@@ -15,4 +15,9 @@ pub struct CodeChainRPC {
 
 impl CodeChainRPC {
     pub fn new(sender: AgentSender) -> Self {
-        Se
+        Self {
+            sender,
+        }
+    }
+
+    pub fn ge
