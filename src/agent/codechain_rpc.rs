@@ -20,4 +20,5 @@ impl CodeChainRPC {
         }
     }
 
-    pub fn get_peers(&self, status: NodeStatus) -> Result<Vec<SocketAdd
+    pub fn get_peers(&self, status: NodeStatus) -> Result<Vec<SocketAddr>, String> {
+        self.call_rpc(status, "net_getEstablishedPeer
