@@ -21,4 +21,7 @@ impl CodeChainRPC {
     }
 
     pub fn get_peers(&self, status: NodeStatus) -> Result<Vec<SocketAddr>, String> {
-        self.call_rpc(status, "net_getEstablishedPeer
+        self.call_rpc(status, "net_getEstablishedPeers", Vec::new())
+    }
+
+    pub fn get_best_block_id(&s
