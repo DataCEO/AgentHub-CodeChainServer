@@ -24,4 +24,5 @@ impl CodeChainRPC {
         self.call_rpc(status, "net_getEstablishedPeers", Vec::new())
     }
 
-    pub fn get_best_block_id(&s
+    pub fn get_best_block_id(&self, status: NodeStatus) -> Result<Option<BlockId>, String> {
+        le
