@@ -29,4 +29,7 @@ impl CodeChainRPC {
             self.call_rpc(status, "chain_getBestBlockId", Vec::new())?;
 
         Ok(response.map(|response| BlockId {
-            block_number:
+            block_number: response.number,
+            hash: response.hash,
+        }))
+ 
