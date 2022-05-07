@@ -25,4 +25,5 @@ impl CodeChainRPC {
     }
 
     pub fn get_best_block_id(&self, status: NodeStatus) -> Result<Option<BlockId>, String> {
-        le
+        let response: Option<ChainGetBestBlockIdResponse> =
+            self.
