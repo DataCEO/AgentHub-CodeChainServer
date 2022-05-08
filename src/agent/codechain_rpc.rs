@@ -34,4 +34,5 @@ impl CodeChainRPC {
         }))
     }
 
-    pub fn version(&self, status: NodeStatus) -> Result<O
+    pub fn version(&self, status: NodeStatus) -> Result<Option<String>, String> {
+        self.call_rpc(status, "version", V
