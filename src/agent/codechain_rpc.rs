@@ -32,4 +32,6 @@ impl CodeChainRPC {
             block_number: response.number,
             hash: response.hash,
         }))
- 
+    }
+
+    pub fn version(&self, status: NodeStatus) -> Result<O
