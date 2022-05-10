@@ -38,4 +38,5 @@ impl CodeChainRPC {
         self.call_rpc(status, "version", Vec::new())
     }
 
-    pub fn commit_hash(&self, status: Node
+    pub fn commit_hash(&self, status: NodeStatus) -> Result<Option<String>, String> {
+        self.call
