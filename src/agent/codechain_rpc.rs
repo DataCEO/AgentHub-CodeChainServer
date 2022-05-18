@@ -42,4 +42,5 @@ impl CodeChainRPC {
         self.call_rpc(status, "commitHash", Vec::new())
     }
 
-    pub fn get_pending_parcels(&self, _status: NodeStatus) -> Result<Vec<Pe
+    pub fn get_pending_parcels(&self, _status: NodeStatus) -> Result<Vec<PendingParcel>, String> {
+        //        self.call_rpc(status, "
