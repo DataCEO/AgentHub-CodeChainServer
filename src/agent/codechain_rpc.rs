@@ -47,4 +47,4 @@ impl CodeChainRPC {
         Ok(Vec::new())
     }
 
-    pub fn get_wh
+    pub fn get_whitelist(&self, status: NodeStatus) -> Result<Option<WhiteList>, S
