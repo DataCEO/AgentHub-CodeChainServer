@@ -49,4 +49,6 @@ impl CodeChainRPC {
 
     pub fn get_whitelist(&self, status: NodeStatus) -> Result<Option<WhiteList>, String> {
         self.call_rpc(status, "net_getWhitelist", Vec::new())
-    
+    }
+
+    pub fn get_blacklist(&self, status: NodeStatus) -> Result<
