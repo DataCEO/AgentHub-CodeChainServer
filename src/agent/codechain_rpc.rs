@@ -55,4 +55,5 @@ impl CodeChainRPC {
         self.call_rpc(status, "net_getBlacklist", Vec::new())
     }
 
-    pub fn get_logs(&self, status:
+    pub fn get_logs(&self, status: NodeStatus) -> Result<Vec<StructuredLog>, String> {
+        if status != No
