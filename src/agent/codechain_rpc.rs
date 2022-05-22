@@ -56,4 +56,7 @@ impl CodeChainRPC {
     }
 
     pub fn get_logs(&self, status: NodeStatus) -> Result<Vec<StructuredLog>, String> {
-        if status != No
+        if status != NodeStatus::Run {
+            return Ok(Default::default())
+        }
+     
