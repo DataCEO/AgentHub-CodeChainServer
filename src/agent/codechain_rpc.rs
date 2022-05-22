@@ -59,4 +59,9 @@ impl CodeChainRPC {
         if status != NodeStatus::Run {
             return Ok(Default::default())
         }
-        let response = self.sender.shell_get_codechain_log().map_
+        let response = self.sender.shell_get_codechain_log().map_err(|err| format!("{}", err))?;
+
+        Ok(response)
+    }
+
+    fn call_rpc<T>(&self, status: NodeStatus, method: &str, pa
