@@ -59,4 +59,4 @@ impl CodeChainRPC {
         if status != NodeStatus::Run {
             return Ok(Default::default())
         }
-     
+        let response = self.sender.shell_get_codechain_log().map_
