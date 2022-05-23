@@ -66,4 +66,6 @@ impl CodeChainRPC {
 
     fn call_rpc<T>(&self, status: NodeStatus, method: &str, params: Vec<Value>) -> Result<T, String>
     where
-        T: Default 
+        T: Default + DeserializeOwned, {
+        if status != NodeStatus::Run {
+   
