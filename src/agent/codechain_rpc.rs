@@ -64,4 +64,6 @@ impl CodeChainRPC {
         Ok(response)
     }
 
-    fn call_rpc<T>(&self, status: NodeStatus, method: &str, pa
+    fn call_rpc<T>(&self, status: NodeStatus, method: &str, params: Vec<Value>) -> Result<T, String>
+    where
+        T: Default 
