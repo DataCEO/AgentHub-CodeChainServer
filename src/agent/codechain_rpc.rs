@@ -68,4 +68,7 @@ impl CodeChainRPC {
     where
         T: Default + DeserializeOwned, {
         if status != NodeStatus::Run {
-   
+            return Ok(Default::default())
+        }
+
+        let respons
