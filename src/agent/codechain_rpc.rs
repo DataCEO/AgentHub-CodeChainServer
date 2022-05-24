@@ -71,4 +71,5 @@ impl CodeChainRPC {
             return Ok(Default::default())
         }
 
-        let respons
+        let response =
+            self.sender.codechain_call_rpc((method.to_stri
