@@ -72,4 +72,6 @@ impl CodeChainRPC {
         }
 
         let response =
-            self.sender.codechain_call_rpc((method.to_stri
+            self.sender.codechain_call_rpc((method.to_string(), params)).map_err(|err| format!("{}", err))?;
+
+        let response: T = ma
