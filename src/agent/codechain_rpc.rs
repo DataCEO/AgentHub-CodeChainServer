@@ -76,4 +76,6 @@ impl CodeChainRPC {
 
         let response: T = match response {
             Output::Success(Success {
-           
+                result,
+                ..
+            }) => se
