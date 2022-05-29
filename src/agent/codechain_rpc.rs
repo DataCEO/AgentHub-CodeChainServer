@@ -82,4 +82,7 @@ impl CodeChainRPC {
             Output::Failure(Failure {
                 error,
                 ..
-            }) => return Err(format!
+            }) => return Err(format!("{} error {:#?}", method, error)),
+        };
+
+        Ok(response
