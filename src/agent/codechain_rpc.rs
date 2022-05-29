@@ -81,3 +81,5 @@ impl CodeChainRPC {
             }) => serde_json::from_value(result).map_err(|err| format!("{}", err))?,
             Output::Failure(Failure {
                 error,
+                ..
+            }) => return Err(format!
