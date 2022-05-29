@@ -85,4 +85,6 @@ impl CodeChainRPC {
             }) => return Err(format!("{} error {:#?}", method, error)),
         };
 
-        Ok(response
+        Ok(response)
+    }
+}
