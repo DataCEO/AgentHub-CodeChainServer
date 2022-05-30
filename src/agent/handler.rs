@@ -7,4 +7,6 @@ use ws::{CloseCode, Error as WSError, Handler, Handshake, Result, Sender as WSSe
 use super::super::agent;
 use super::super::jsonrpc;
 
-pu
+pub struct WebSocketHandler {
+    pub out: WSSender,
+  
