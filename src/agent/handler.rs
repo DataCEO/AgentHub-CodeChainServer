@@ -14,4 +14,5 @@ pub struct WebSocketHandler {
     pub jsonrpc_context: jsonrpc::Context,
 }
 
-impl WebSocke
+impl WebSocketHandler {
+    pub fn new(out: WSSender, count: Rc<Cell<u32>>,
