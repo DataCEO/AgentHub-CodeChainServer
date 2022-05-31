@@ -10,4 +10,8 @@ use super::super::jsonrpc;
 pub struct WebSocketHandler {
     pub out: WSSender,
     pub count: Rc<Cell<u32>>,
-    pub agent_service: agent::ServiceSender
+    pub agent_service: agent::ServiceSender,
+    pub jsonrpc_context: jsonrpc::Context,
+}
+
+impl WebSocke
