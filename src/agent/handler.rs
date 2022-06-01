@@ -15,4 +15,5 @@ pub struct WebSocketHandler {
 }
 
 impl WebSocketHandler {
-    pub fn new(out: WSSender, count: Rc<Cell<u32>>,
+    pub fn new(out: WSSender, count: Rc<Cell<u32>>, agent_service: agent::ServiceSender) -> Self {
+        let jsonrpc_c
