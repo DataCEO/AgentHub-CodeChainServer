@@ -16,4 +16,6 @@ pub struct WebSocketHandler {
 
 impl WebSocketHandler {
     pub fn new(out: WSSender, count: Rc<Cell<u32>>, agent_service: agent::ServiceSender) -> Self {
-        let jsonrpc_c
+        let jsonrpc_context = jsonrpc::Context::new(out.clone());
+        agent_service
+   
