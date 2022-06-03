@@ -18,4 +18,5 @@ impl WebSocketHandler {
     pub fn new(out: WSSender, count: Rc<Cell<u32>>, agent_service: agent::ServiceSender) -> Self {
         let jsonrpc_context = jsonrpc::Context::new(out.clone());
         agent_service
-   
+            .send(agent::Message::InitializeAgent(jsonrpc_context.clone()))
+ 
