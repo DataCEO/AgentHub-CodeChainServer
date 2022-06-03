@@ -23,4 +23,7 @@ impl WebSocketHandler {
         Self {
             out,
             count,
-    
+            agent_service,
+            jsonrpc_context,
+        }
+  
