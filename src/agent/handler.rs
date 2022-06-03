@@ -19,4 +19,4 @@ impl WebSocketHandler {
         let jsonrpc_context = jsonrpc::Context::new(out.clone());
         agent_service
             .send(agent::Message::InitializeAgent(jsonrpc_context.clone()))
- 
+            .expect("Should success send InitializeAgent to ser
