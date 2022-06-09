@@ -30,4 +30,5 @@ impl WebSocketHandler {
 }
 
 impl Handler for WebSocketHandler {
-    fn on
+    fn on_open(&mut self, _: Handshake) -> Result<()> {
+        // We have a new c
