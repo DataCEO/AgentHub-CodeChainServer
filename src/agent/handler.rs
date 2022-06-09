@@ -26,4 +26,8 @@ impl WebSocketHandler {
             agent_service,
             jsonrpc_context,
         }
-  
+    }
+}
+
+impl Handler for WebSocketHandler {
+    fn on
