@@ -32,4 +32,8 @@ impl WebSocketHandler {
 impl Handler for WebSocketHandler {
     fn on_open(&mut self, _: Handshake) -> Result<()> {
         // We have a new connection, so we increment the connection counter
-        self.
+        self.count.set(self.count.get() + 1);
+        Ok(())
+    }
+
+    fn on_mess
