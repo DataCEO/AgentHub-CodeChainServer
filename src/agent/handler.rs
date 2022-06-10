@@ -36,4 +36,5 @@ impl Handler for WebSocketHandler {
         Ok(())
     }
 
-    fn on_mess
+    fn on_message(&mut self, msg: ws::Message) -> Result<()> {
+        // Tell th
