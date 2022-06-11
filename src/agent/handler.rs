@@ -37,4 +37,5 @@ impl Handler for WebSocketHandler {
     }
 
     fn on_message(&mut self, msg: ws::Message) -> Result<()> {
-        // Tell th
+        // Tell the user the current count
+        ctrace!("The number of live connectio
