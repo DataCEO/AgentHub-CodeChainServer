@@ -41,4 +41,6 @@ impl Handler for WebSocketHandler {
         ctrace!("The number of live connections is {}", self.count.get());
 
         match msg {
-            ws::Message::Text(text) => jsonrpc::on_receive(self.j
+            ws::Message::Text(text) => jsonrpc::on_receive(self.jsonrpc_context.clone(), text),
+            _ => {
+       
