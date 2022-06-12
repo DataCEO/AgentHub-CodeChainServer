@@ -43,4 +43,6 @@ impl Handler for WebSocketHandler {
         match msg {
             ws::Message::Text(text) => jsonrpc::on_receive(self.jsonrpc_context.clone(), text),
             _ => {
-       
+                cwarn!("Byte data received from agent");
+            }
+      
