@@ -45,4 +45,8 @@ impl Handler for WebSocketHandler {
             _ => {
                 cwarn!("Byte data received from agent");
             }
-      
+        };
+        Ok(())
+    }
+
+    fn on_close(&mut self, code: C
