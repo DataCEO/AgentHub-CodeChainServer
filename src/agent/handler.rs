@@ -49,4 +49,6 @@ impl Handler for WebSocketHandler {
         Ok(())
     }
 
-    fn on_close(&mut self, code: C
+    fn on_close(&mut self, code: CloseCode, reason: &str) {
+        match code {
+            C
