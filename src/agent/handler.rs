@@ -52,4 +52,5 @@ impl Handler for WebSocketHandler {
     fn on_close(&mut self, code: CloseCode, reason: &str) {
         match code {
             CloseCode::Normal => cinfo!("The client is done with the connection."),
-            CloseCode::Away => cinfo!("Th
+            CloseCode::Away => cinfo!("The client is leaving the site."),
+            CloseCode::Abnormal => 
