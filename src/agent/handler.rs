@@ -53,4 +53,4 @@ impl Handler for WebSocketHandler {
         match code {
             CloseCode::Normal => cinfo!("The client is done with the connection."),
             CloseCode::Away => cinfo!("The client is leaving the site."),
-            CloseCode::Abnormal => 
+            CloseCode::Abnormal => cinfo!("Closing handshake failed! Unable to obtain closing
