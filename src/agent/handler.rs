@@ -57,4 +57,5 @@ impl Handler for WebSocketHandler {
             _ => cinfo!("The client encountered an error: {}", reason),
         }
 
-        // The connection is going do
+        // The connection is going down, so we need to decrement the count
+        self.count.se
