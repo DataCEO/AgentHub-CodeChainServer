@@ -58,4 +58,7 @@ impl Handler for WebSocketHandler {
         }
 
         // The connection is going down, so we need to decrement the count
-        self.count.se
+        self.count.set(self.count.get() - 1)
+    }
+
+    fn on_error(&
