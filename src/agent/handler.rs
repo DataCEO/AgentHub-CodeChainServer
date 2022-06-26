@@ -62,4 +62,6 @@ impl Handler for WebSocketHandler {
     }
 
     fn on_error(&mut self, err: WSError) {
-        cerror!("The server encountered an error
+        cerror!("The server encountered an error: {:?}", err);
+    }
+}
