@@ -61,4 +61,5 @@ impl Handler for WebSocketHandler {
         self.count.set(self.count.get() - 1)
     }
 
-    fn on_error(&
+    fn on_error(&mut self, err: WSError) {
+        cerror!("The server encountered an error
