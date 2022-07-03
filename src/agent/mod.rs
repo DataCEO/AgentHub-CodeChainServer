@@ -6,4 +6,5 @@ pub mod service;
 mod types;
 
 pub use self::agent::{SendAgentRPC, State};
-pub use self::handler::WebSocketHand
+pub use self::handler::WebSocketHandler;
+pub use self::service::{Message, Service, ServiceS
