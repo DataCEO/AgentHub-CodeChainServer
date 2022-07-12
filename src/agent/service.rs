@@ -19,4 +19,9 @@ impl State {
         Self {
             agents: Vec::new(),
         }
-  
+    }
+}
+
+#[derive(Clone)]
+pub struct ServiceSender {
+    sender
