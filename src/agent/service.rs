@@ -11,4 +11,8 @@ use super::super::jsonrpc;
 use super::agent::{Agent, AgentSender};
 
 pub struct State {
+    agents: Vec<(i32, AgentSender)>,
+}
+
+impl State {
   
