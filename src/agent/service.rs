@@ -28,4 +28,5 @@ pub struct ServiceSender {
     state: Arc<RwLock<State>>,
 }
 
-impl Ser
+impl ServiceSender {
+    pub fn send(&self, message: Message) -> Result<
