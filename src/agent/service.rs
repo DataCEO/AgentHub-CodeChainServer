@@ -24,4 +24,8 @@ impl State {
 
 #[derive(Clone)]
 pub struct ServiceSender {
-    sender
+    sender: Sender<Message>,
+    state: Arc<RwLock<State>>,
+}
+
+impl Ser
