@@ -33,4 +33,6 @@ impl ServiceSender {
         self.sender.send(message)
     }
 
-    pub fn get_agent(&self, name: NodeName) -> Option<Agen
+    pub fn get_agent(&self, name: NodeName) -> Option<AgentSender> {
+        let state = self.state.read();
+        let find
