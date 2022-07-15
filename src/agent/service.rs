@@ -29,4 +29,5 @@ pub struct ServiceSender {
 }
 
 impl ServiceSender {
-    pub fn send(&self, message: Message) -> Result<
+    pub fn send(&self, message: Message) -> Result<(), SendError<Message>> {
+        self.sender.send(messag
