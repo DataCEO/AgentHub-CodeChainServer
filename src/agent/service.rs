@@ -30,4 +30,7 @@ pub struct ServiceSender {
 
 impl ServiceSender {
     pub fn send(&self, message: Message) -> Result<(), SendError<Message>> {
-        self.sender.send(messag
+        self.sender.send(message)
+    }
+
+    pub fn get_agent(&self, name: NodeName) -> Option<Agen
