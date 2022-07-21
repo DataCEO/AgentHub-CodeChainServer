@@ -39,4 +39,8 @@ impl ServiceSender {
             let agent_state = agent.read_state();
             match agent_state.name() {
                 None => false,
-                Some(agent_name) => age
+                Some(agent_name) => agent_name == name,
+            }
+        });
+
+        find
