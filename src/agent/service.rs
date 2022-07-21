@@ -43,4 +43,8 @@ impl ServiceSender {
             }
         });
 
-        find
+        find_result.map(|(_, agent)| agent.clone())
+    }
+}
+
+pub struct Service {
