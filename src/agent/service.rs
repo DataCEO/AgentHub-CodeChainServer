@@ -55,4 +55,5 @@ pub struct Service {
 }
 
 pub enum Message {
-    Init
+    InitializeAgent(jsonrpc::Context),
+    AddAgent(i32, AgentSender),
