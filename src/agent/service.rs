@@ -50,4 +50,9 @@ impl ServiceSender {
 pub struct Service {
     state: Arc<RwLock<State>>,
     next_id: i32,
-    sender: ServiceSe
+    sender: ServiceSender,
+    db_service: db::ServiceSender,
+}
+
+pub enum Message {
+    Init
