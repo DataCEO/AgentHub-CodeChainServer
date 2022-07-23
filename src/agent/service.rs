@@ -48,3 +48,6 @@ impl ServiceSender {
 }
 
 pub struct Service {
+    state: Arc<RwLock<State>>,
+    next_id: i32,
+    sender: ServiceSe
