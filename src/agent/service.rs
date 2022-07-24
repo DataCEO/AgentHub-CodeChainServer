@@ -57,3 +57,8 @@ pub struct Service {
 pub enum Message {
     InitializeAgent(jsonrpc::Context),
     AddAgent(i32, AgentSender),
+    RemoveAgent(i32),
+}
+
+impl Service {
+    pub fn run_th
