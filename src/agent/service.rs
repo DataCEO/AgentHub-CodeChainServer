@@ -61,4 +61,5 @@ pub enum Message {
 }
 
 impl Service {
-    pub fn run_th
+    pub fn run_thread(db_service: db::ServiceSender) -> ServiceSender {
+        let (tx
