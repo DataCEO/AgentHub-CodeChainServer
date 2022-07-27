@@ -63,4 +63,5 @@ pub enum Message {
 impl Service {
     pub fn run_thread(db_service: db::ServiceSender) -> ServiceSender {
         let (tx, rx) = channel();
-        let state = Arc::new(RwLock::new(State:
+        let state = Arc::new(RwLock::new(State::new()));
+        let service_sender = Service
