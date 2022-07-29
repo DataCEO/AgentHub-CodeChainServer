@@ -66,4 +66,7 @@ impl Service {
         let state = Arc::new(RwLock::new(State::new()));
         let service_sender = ServiceSender {
             sender: tx.clone(),
-            state: stat
+            state: state.clone(),
+        };
+
+        let mut service = Service::n
