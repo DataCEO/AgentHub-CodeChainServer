@@ -69,4 +69,6 @@ impl Service {
             state: state.clone(),
         };
 
-        let mut service = Service::n
+        let mut service = Service::new(service_sender.clone(), state, db_service);
+
+        thre
