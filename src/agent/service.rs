@@ -71,4 +71,5 @@ impl Service {
 
         let mut service = Service::new(service_sender.clone(), state, db_service);
 
-        thre
+        thread::Builder::new()
+            .name("agent service".to_string()
