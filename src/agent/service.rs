@@ -72,4 +72,6 @@ impl Service {
         let mut service = Service::new(service_sender.clone(), state, db_service);
 
         thread::Builder::new()
-            .name("agent service".to_string()
+            .name("agent service".to_string())
+            .spawn(move || {
+                for message in rx {
