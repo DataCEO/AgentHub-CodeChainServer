@@ -77,4 +77,5 @@ impl Service {
                 for message in rx {
                     match message {
                         Message::InitializeAgent(jsonrpc_context) => {
-            
+                            service.create_agent(jsonrpc_context);
+                
