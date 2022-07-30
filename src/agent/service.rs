@@ -76,4 +76,5 @@ impl Service {
             .spawn(move || {
                 for message in rx {
                     match message {
-                  
+                        Message::InitializeAgent(jsonrpc_context) => {
+            
