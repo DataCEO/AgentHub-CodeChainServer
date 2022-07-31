@@ -82,4 +82,5 @@ impl Service {
                         Message::AddAgent(id, agent_sender) => {
                             service.add_agent(id, agent_sender);
                         }
-                        Message::
+                        Message::RemoveAgent(id) => {
+                            service.remove_agen
