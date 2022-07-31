@@ -80,4 +80,6 @@ impl Service {
                             service.create_agent(jsonrpc_context);
                         }
                         Message::AddAgent(id, agent_sender) => {
-                            service.add_agent(id, agent_sender
+                            service.add_agent(id, agent_sender);
+                        }
+                        Message::
