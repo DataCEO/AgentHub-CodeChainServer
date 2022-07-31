@@ -78,4 +78,5 @@ impl Service {
                     match message {
                         Message::InitializeAgent(jsonrpc_context) => {
                             service.create_agent(jsonrpc_context);
-                
+                        }
+                        Message::AddAgent(id, agent_
