@@ -88,4 +88,9 @@ impl Service {
                     }
                 }
             })
-            .expect("Should success running a
+            .expect("Should success running agent service thread");
+
+        service_sender
+    }
+
+    fn new
