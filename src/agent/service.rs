@@ -93,4 +93,4 @@ impl Service {
         service_sender
     }
 
-    fn new
+    fn new(sender: ServiceSender, state: Arc<RwLock<State>>, db_ser
