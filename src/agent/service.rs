@@ -96,3 +96,6 @@ impl Service {
     fn new(sender: ServiceSender, state: Arc<RwLock<State>>, db_service: db::ServiceSender) -> Self {
         Service {
             state,
+            next_id: 0_i32,
+            sender,
+            d
