@@ -98,4 +98,8 @@ impl Service {
             state,
             next_id: 0_i32,
             sender,
-            d
+            db_service,
+        }
+    }
+
+    fn create_agent(&mut self, jsonrpc_
