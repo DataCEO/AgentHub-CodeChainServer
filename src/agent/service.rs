@@ -102,4 +102,6 @@ impl Service {
         }
     }
 
-    fn create_agent(&mut self, jsonrpc_
+    fn create_agent(&mut self, jsonrpc_context: jsonrpc::Context) {
+        let id = self.next_id;
+        s
