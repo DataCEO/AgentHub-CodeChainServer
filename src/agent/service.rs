@@ -105,4 +105,5 @@ impl Service {
     fn create_agent(&mut self, jsonrpc_context: jsonrpc::Context) {
         let id = self.next_id;
         self.next_id += 1;
-        Agent::run_thread(id, jsonrpc_con
+        Agent::run_thread(id, jsonrpc_context, self.sender.clone(), self.db_service.clone());
+        cdebug!("Ag
