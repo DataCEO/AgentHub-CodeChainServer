@@ -106,4 +106,7 @@ impl Service {
         let id = self.next_id;
         self.next_id += 1;
         Agent::run_thread(id, jsonrpc_context, self.sender.clone(), self.db_service.clone());
-        cdebug!("Ag
+        cdebug!("Agent {} initialization starts", id);
+    }
+
+    fn add_agent(&
