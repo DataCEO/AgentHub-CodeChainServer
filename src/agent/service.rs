@@ -109,4 +109,5 @@ impl Service {
         cdebug!("Agent {} initialization starts", id);
     }
 
-    fn add_agent(&
+    fn add_agent(&mut self, id: i32, agent_sender: AgentSender) {
+        let mut state =
