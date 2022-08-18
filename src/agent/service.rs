@@ -114,3 +114,6 @@ impl Service {
         state.agents.push((id, agent_sender));
         cdebug!("Agent {} is added to AgentService", id);
     }
+
+    fn remove_agent(&mut self, id: i32) {
+        let mut state = sel
