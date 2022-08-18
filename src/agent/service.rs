@@ -112,4 +112,5 @@ impl Service {
     fn add_agent(&mut self, id: i32, agent_sender: AgentSender) {
         let mut state = self.state.write();
         state.agents.push((id, agent_sender));
-        
+        cdebug!("Agent {} is added to AgentService", id);
+    }
