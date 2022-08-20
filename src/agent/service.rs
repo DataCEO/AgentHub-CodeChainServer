@@ -116,4 +116,6 @@ impl Service {
     }
 
     fn remove_agent(&mut self, id: i32) {
-        let mut state = sel
+        let mut state = self.state.write();
+
+        let agent_index = state.agents.iter().
