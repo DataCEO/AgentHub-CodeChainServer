@@ -120,4 +120,7 @@ impl Service {
 
         let agent_index = state.agents.iter().position(|(iter_id, _)| *iter_id == id);
         if agent_index.is_none() {
-            cerror!("Cannot find agent {} to de
+            cerror!("Cannot find agent {} to delete", id);
+            return
+        }
+        state.agen
