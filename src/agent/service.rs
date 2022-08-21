@@ -119,4 +119,5 @@ impl Service {
         let mut state = self.state.write();
 
         let agent_index = state.agents.iter().position(|(iter_id, _)| *iter_id == id);
-        if agent_inde
+        if agent_index.is_none() {
+            cerror!("Cannot find agent {} to de
