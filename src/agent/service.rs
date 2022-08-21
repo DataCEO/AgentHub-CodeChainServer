@@ -118,4 +118,5 @@ impl Service {
     fn remove_agent(&mut self, id: i32) {
         let mut state = self.state.write();
 
-        let agent_index = state.agents.iter().
+        let agent_index = state.agents.iter().position(|(iter_id, _)| *iter_id == id);
+        if agent_inde
