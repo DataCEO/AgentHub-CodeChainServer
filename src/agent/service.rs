@@ -123,4 +123,5 @@ impl Service {
             cerror!("Cannot find agent {} to delete", id);
             return
         }
-        state.agen
+        state.agents.remove(agent_index.unwrap());
+        cdebug!("Agent {} is remo
