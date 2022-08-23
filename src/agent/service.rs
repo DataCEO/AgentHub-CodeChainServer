@@ -124,4 +124,6 @@ impl Service {
             return
         }
         state.agents.remove(agent_index.unwrap());
-        cdebug!("Agent {} is remo
+        cdebug!("Agent {} is removed from AgentService", id);
+    }
+}
