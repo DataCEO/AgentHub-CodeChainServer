@@ -9,4 +9,6 @@ use super::super::common_rpc_types::{NodeName, NodeStatus};
 #[serde(rename_all = "camelCase")]
 pub struct AgentGetInfoResponse {
     pub status: NodeStatus,
-    pub name: No
+    pub name: NodeName,
+    pub address: Option<SocketAddr>,
+    pub codechain_c
