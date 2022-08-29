@@ -7,4 +7,6 @@ use super::super::common_rpc_types::{NodeName, NodeStatus};
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct AgentGetI
+pub struct AgentGetInfoResponse {
+    pub status: NodeStatus,
+    pub name: No
