@@ -11,4 +11,5 @@ pub struct AgentGetInfoResponse {
     pub status: NodeStatus,
     pub name: NodeName,
     pub address: Option<SocketAddr>,
-    pub codechain_c
+    pub codechain_commit_hash: String,
+    pub codechain_binary_checksum: String,
