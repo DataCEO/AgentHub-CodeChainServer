@@ -18,4 +18,10 @@ pub struct AgentGetInfoResponse {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CodeChainCallRPCResponse {
-    pub inner_response: 
+    pub inner_response: Value,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CodeChainCallRPCResponseHelper {
+    pub result
