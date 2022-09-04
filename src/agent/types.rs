@@ -24,4 +24,8 @@ pub struct CodeChainCallRPCResponse {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct CodeChainCallRPCResponseHelper {
-    pub result
+    pub result: Option<Value>,
+    pub error: Option<Value>,
+}
+
+#[deriv
