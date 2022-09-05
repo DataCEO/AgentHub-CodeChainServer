@@ -28,4 +28,6 @@ pub struct CodeChainCallRPCResponseHelper {
     pub error: Option<Value>,
 }
 
-#[deriv
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct 
