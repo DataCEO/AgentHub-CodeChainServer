@@ -30,4 +30,6 @@ pub struct CodeChainCallRPCResponseHelper {
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct 
+pub struct ChainGetBestBlockIdResponse {
+    pub hash: H256,
+    pub numbe
