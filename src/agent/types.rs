@@ -32,4 +32,5 @@ pub struct CodeChainCallRPCResponseHelper {
 #[serde(rename_all = "camelCase")]
 pub struct ChainGetBestBlockIdResponse {
     pub hash: H256,
-    pub numbe
+    pub number: i64,
+}
