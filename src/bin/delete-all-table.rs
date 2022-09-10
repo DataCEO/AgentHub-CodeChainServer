@@ -8,4 +8,6 @@ use chub::logger_init;
 use postgres::{Connection, TlsMode};
 
 fn main() {
-    l
+    logger_init().expect("Logger should be initialized");
+
+    // FIXME: move to conf
