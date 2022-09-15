@@ -12,4 +12,5 @@ fn main() {
 
     // FIXME: move to configuration file
     let user = "codechain-agent-hub";
-    le
+    let password = "preempt-entreat-bell-chanson";
+    let conn_uri = format!(
