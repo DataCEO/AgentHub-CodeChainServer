@@ -10,4 +10,6 @@ use postgres::{Connection, TlsMode};
 fn main() {
     logger_init().expect("Logger should be initialized");
 
-    // FIXME: move to conf
+    // FIXME: move to configuration file
+    let user = "codechain-agent-hub";
+    le
