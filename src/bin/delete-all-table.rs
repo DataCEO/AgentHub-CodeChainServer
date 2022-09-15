@@ -13,4 +13,5 @@ fn main() {
     // FIXME: move to configuration file
     let user = "codechain-agent-hub";
     let password = "preempt-entreat-bell-chanson";
-    let conn_uri = format!(
+    let conn_uri = format!("postgres://{}:{}@localhost", user, password);
+    l
