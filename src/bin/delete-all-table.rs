@@ -16,4 +16,5 @@ fn main() {
     let conn_uri = format!("postgres://{}:{}@localhost", user, password);
     let conn = Connection::connect(conn_uri, TlsMode::None).unwrap();
 
-  
+    let table_names = get_all_table_names(&conn);
+    cinfo!("Table names 
