@@ -17,4 +17,6 @@ fn main() {
     let conn = Connection::connect(conn_uri, TlsMode::None).unwrap();
 
     let table_names = get_all_table_names(&conn);
-    cinfo!("Table names 
+    cinfo!("Table names to delete are {:?}", table_names);
+
+    for table_name
