@@ -14,4 +14,6 @@ fn main() {
     let user = "codechain-agent-hub";
     let password = "preempt-entreat-bell-chanson";
     let conn_uri = format!("postgres://{}:{}@localhost", user, password);
-    l
+    let conn = Connection::connect(conn_uri, TlsMode::None).unwrap();
+
+  
