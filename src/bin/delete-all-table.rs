@@ -19,4 +19,6 @@ fn main() {
     let table_names = get_all_table_names(&conn);
     cinfo!("Table names to delete are {:?}", table_names);
 
-    for table_name
+    for table_name in table_names {
+        cinfo!("Drop table {}", &table_name);
+        drop_tab
