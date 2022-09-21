@@ -25,4 +25,6 @@ fn main() {
     }
 }
 
-fn get_all_table_names(conn: &Con
+fn get_all_table_names(conn: &Connection) -> Vec<String> {
+    let rows = conn
+     
