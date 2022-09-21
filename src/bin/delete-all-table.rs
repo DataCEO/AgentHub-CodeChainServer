@@ -21,4 +21,8 @@ fn main() {
 
     for table_name in table_names {
         cinfo!("Drop table {}", &table_name);
-        drop_tab
+        drop_table(&conn, &table_name);
+    }
+}
+
+fn get_all_table_names(conn: &Con
