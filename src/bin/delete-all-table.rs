@@ -35,4 +35,7 @@ fn get_all_table_names(conn: &Connection) -> Vec<String> {
             &[],
         )
         .unwrap();
-    rows.iter().map(|row| row.get
+    rows.iter().map(|row| row.get(0)).collect()
+}
+
+fn drop_table(conn: &Connection, table_name: &s
