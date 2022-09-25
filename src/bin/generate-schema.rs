@@ -43,3 +43,17 @@ fn create_logs_schema(conn: &Connection) {
         name VARCHAR NOT NULL,
         level VARCHAR NOT NULL,
         target VARCHAR NOT NULL,
+        thread_name VARCHAR NOT NULL,
+        message VARCHAR NOT NULL,
+        timestamp TIMESTAMP WITH TIME ZONE NOT NULL
+    )",
+        &[],
+    )
+    .unwrap();
+
+    cinfo!("Create logs_timestamp index");
+    conn.execute("CREATE INDEX IF NOT EXISTS logs_timestamp ON logs (timestamp)", &[]).unwrap();
+
+    cinfo!("Create logs_target index");
+    conn.execute("CREATE INDEX IF NOT EXISTS logs_targets ON logs (target)", &[]).unwrap();
+}
