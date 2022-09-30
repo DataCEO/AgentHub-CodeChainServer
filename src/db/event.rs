@@ -7,4 +7,5 @@ pub enum Event {
         after: Box<AgentQueryResult>,
     },
     ConnectionChanged {
-        a
+        added: Vec<(NodeName, NodeName)>,
+        removed: Vec<
