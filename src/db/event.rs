@@ -8,4 +8,7 @@ pub enum Event {
     },
     ConnectionChanged {
         added: Vec<(NodeName, NodeName)>,
-        removed: Vec<
+        removed: Vec<(NodeName, NodeName)>,
+    },
+    AgentExtraUpdated {
+        nam
