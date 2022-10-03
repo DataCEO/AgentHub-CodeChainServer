@@ -11,4 +11,6 @@ pub enum Event {
         removed: Vec<(NodeName, NodeName)>,
     },
     AgentExtraUpdated {
-        nam
+        name: NodeName,
+        before: Option<AgentExtra>,
+        after: AgentExt
