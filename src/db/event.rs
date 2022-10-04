@@ -13,4 +13,9 @@ pub enum Event {
     AgentExtraUpdated {
         name: NodeName,
         before: Option<AgentExtra>,
-        after: AgentExt
+        after: AgentExtra,
+    },
+}
+
+pub trait EventSubscriber: Send {
+    fn on_
