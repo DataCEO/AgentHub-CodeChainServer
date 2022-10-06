@@ -18,4 +18,5 @@ pub enum Event {
 }
 
 pub trait EventSubscriber: Send {
-    fn on_
+    fn on_event(&self, event: Event);
+}
