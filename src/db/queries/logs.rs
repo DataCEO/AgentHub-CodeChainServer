@@ -5,4 +5,5 @@ use chrono;
 use postgres;
 use postgres::types::ToSql;
 
-use super
+use super::super::super::common_rpc_types::StructuredLog;
+use super::super::types::O
