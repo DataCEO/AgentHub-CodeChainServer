@@ -13,4 +13,8 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
     ctrace!("Add log {} : {:?}", node_name, logs);
 
     if logs.is_empty() {
-        r
+        return Ok(())
+    }
+
+    for log_chunk in logs.chunks(1000) {
+   
