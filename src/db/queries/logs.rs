@@ -10,4 +10,7 @@ use super::super::types::OrderBy;
 use super::super::types::{Log, LogQueryParams};
 
 pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<StructuredLog>) -> postgres::Result<()> {
-    ctrace!
+    ctrace!("Add log {} : {:?}", node_name, logs);
+
+    if logs.is_empty() {
+        r
