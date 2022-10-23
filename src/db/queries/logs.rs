@@ -17,4 +17,4 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
     }
 
     for log_chunk in logs.chunks(1000) {
-   
+        let mut parameters_positions: Vec<String> = Vec::new()
