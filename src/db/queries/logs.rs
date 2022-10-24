@@ -22,4 +22,6 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
 
         for (row_index, log) in log_chunk.iter().enumerate() {
             let base_num = row_index * 6;
-            parameters_positions.push(
+            parameters_positions.push(format!(
+                "(${}, ${}, ${}, ${}, ${}, ${})",
+   
