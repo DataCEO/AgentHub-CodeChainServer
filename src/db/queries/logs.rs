@@ -24,4 +24,6 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
             let base_num = row_index * 6;
             parameters_positions.push(format!(
                 "(${}, ${}, ${}, ${}, ${}, ${})",
-   
+                base_num + 1,
+                base_num + 2,
+     
