@@ -32,4 +32,4 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
                 base_num + 6
             ));
             let rfc3339with_nano_second = "%Y-%m-%dT%H:%M:%S.%f%z";
-       
+            let datetime = chrono::DateTime::parse_from_
