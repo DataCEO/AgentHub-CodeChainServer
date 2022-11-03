@@ -28,4 +28,6 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
                 base_num + 2,
                 base_num + 3,
                 base_num + 4,
-            
+                base_num + 5,
+                base_num + 6
+         
