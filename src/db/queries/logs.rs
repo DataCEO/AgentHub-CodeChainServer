@@ -34,4 +34,5 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
             let rfc3339with_nano_second = "%Y-%m-%dT%H:%M:%S.%f%z";
             let datetime = chrono::DateTime::parse_from_str(&log.timestamp, rfc3339with_nano_second).unwrap();
             parameters.push(Box::new(node_name));
-            p
+            parameters.push(Box::new(log.level.clone()));
+            parame
