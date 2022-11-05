@@ -36,4 +36,5 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
             parameters.push(Box::new(node_name));
             parameters.push(Box::new(log.level.clone()));
             parameters.push(Box::new(log.target.clone()));
-            parameters.
+            parameters.push(Box::new(log.message.clone()));
+            parameters.push
