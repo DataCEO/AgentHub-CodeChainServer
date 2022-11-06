@@ -38,4 +38,8 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
             parameters.push(Box::new(log.target.clone()));
             parameters.push(Box::new(log.message.clone()));
             parameters.push(Box::new(datetime));
-            parameters.push(Box::new(lo
+            parameters.push(Box::new(log.thread_name.clone()));
+        }
+
+        let full_sql = format!(
+     
