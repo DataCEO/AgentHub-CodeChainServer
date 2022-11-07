@@ -43,4 +43,6 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
 
         let full_sql = format!(
             "INSERT INTO logs (name, level, target, message, timestamp, thread_name) VALUES {}",
-            parameters_positions.joi
+            parameters_positions.join(", ")
+        );
+        let parameters_ref: Vec<&ToSql
