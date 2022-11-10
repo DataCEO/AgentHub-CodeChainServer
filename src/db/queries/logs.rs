@@ -45,4 +45,5 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
             "INSERT INTO logs (name, level, target, message, timestamp, thread_name) VALUES {}",
             parameters_positions.join(", ")
         );
-        let parameters_ref: Vec<&ToSql
+        let parameters_ref: Vec<&ToSql> = parameters.iter().map(|param| param.as_ref()).collect();
+        ctr
