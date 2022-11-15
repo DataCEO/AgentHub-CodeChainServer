@@ -53,4 +53,4 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
     Ok(())
 }
 
-pub fn search(conn: 
+pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres:
