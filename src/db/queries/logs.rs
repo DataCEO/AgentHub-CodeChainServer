@@ -47,4 +47,10 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
         );
         let parameters_ref: Vec<&ToSql> = parameters.iter().map(|param| param.as_ref()).collect();
         ctrace!("Full query is {}", full_sql);
-        conn.execute(&full_sql, &parameters_
+        conn.execute(&full_sql, &parameters_ref)?;
+    }
+
+    Ok(())
+}
+
+pub fn search(conn: 
