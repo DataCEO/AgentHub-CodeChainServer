@@ -56,4 +56,6 @@ pub fn insert(conn: &postgres::Connection, node_name: &str, logs: Vec<Structured
 pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::Result<Vec<Log>> {
     ctrace!("Search log with {:?}", params);
     let mut parameters = Parameters::new();
-    let mut where_cond
+    let mut where_conditions = Vec::new();
+    if let Some(filter) = params.filter {
+   
