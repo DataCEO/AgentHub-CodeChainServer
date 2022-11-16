@@ -58,4 +58,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     let mut parameters = Parameters::new();
     let mut where_conditions = Vec::new();
     if let Some(filter) = params.filter {
-   
+        if !filter.node_names.is_empty() {
+            let node_names_index
