@@ -62,3 +62,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             let node_names_index = parameters.add(Rc::new(filter.node_names));
             where_conditions.push(format!("name = ANY(${})", node_names_index));
         }
+        if !filter.levels.is_empty() {
+            let uppe
