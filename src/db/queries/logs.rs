@@ -63,4 +63,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             where_conditions.push(format!("name = ANY(${})", node_names_index));
         }
         if !filter.levels.is_empty() {
-            let uppe
+            let uppercase_levels: Vec<String> =
+                filter.level
