@@ -64,4 +64,4 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         }
         if !filter.levels.is_empty() {
             let uppercase_levels: Vec<String> =
-                filter.level
+                filter.levels.iter().map(|level| level.to_string().to_uppercase()).collect();
