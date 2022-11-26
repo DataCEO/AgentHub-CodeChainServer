@@ -66,4 +66,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             let uppercase_levels: Vec<String> =
                 filter.levels.iter().map(|level| level.to_string().to_uppercase()).collect();
             let filters_index = parameters.add(Rc::new(uppercase_levels));
-            where_conditions.push(format!("level
+            where_conditions.push(format!("level = ANY(${})", filters_index));
+        }
+        if !filter.target
