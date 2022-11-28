@@ -69,4 +69,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             where_conditions.push(format!("level = ANY(${})", filters_index));
         }
         if !filter.targets.is_empty() {
-            let targets_index = parameters.add(Rc
+            let targets_index = parameters.add(Rc::new(filter.targets));
+            where_conditions.push(format!("targ
