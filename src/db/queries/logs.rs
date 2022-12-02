@@ -74,4 +74,7 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         }
         if let Some(thread_name) = filter.thread_name {
             let target_index = parameters.add(Rc::new(thread_name));
-            where_conditions.push(format!("thread_name = ${}", tar
+            where_conditions.push(format!("thread_name = ${}", target_index));
+        }
+    }
+    if let Some(search) = params.
