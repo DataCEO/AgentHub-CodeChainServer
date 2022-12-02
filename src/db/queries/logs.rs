@@ -77,4 +77,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             where_conditions.push(format!("thread_name = ${}", target_index));
         }
     }
-    if let Some(search) = params.
+    if let Some(search) = params.search {
+        if search != "" {
+            let search_index = paramete
