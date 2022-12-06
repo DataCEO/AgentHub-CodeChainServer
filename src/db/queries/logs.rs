@@ -84,4 +84,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         }
     }
     if let Some(time) = params.time {
-        if let Some(
+        if let Some(from) = time.from_time {
+            let from_index = parameters
