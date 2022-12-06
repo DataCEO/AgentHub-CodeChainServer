@@ -80,4 +80,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     if let Some(search) = params.search {
         if search != "" {
             let search_index = parameters.add(Rc::new(format!("%{}%", search)));
-            wher
+            where_conditions.push(format!("message ILIKE ${}", search_index));
+   
