@@ -86,4 +86,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     if let Some(time) = params.time {
         if let Some(from) = time.from_time {
             let from_index = parameters.add(Rc::new(from));
-            where_conditions.push(format!("t
+            where_conditions.push(format!("timestamp > ${}", from_index));
+        }
+        if let Some(
