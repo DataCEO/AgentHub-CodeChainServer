@@ -90,4 +90,8 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         }
         if let Some(to) = time.to_time {
             let to_index = parameters.add(Rc::new(to));
-            where_conditions.push(for
+            where_conditions.push(format!("timestamp < ${}", to_index));
+        }
+    }
+
+    let wher
