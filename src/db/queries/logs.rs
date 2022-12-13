@@ -94,4 +94,5 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         }
     }
 
-    let wher
+    let where_clause = if !where_conditions.is_empty() {
+        "WHERE ".to
