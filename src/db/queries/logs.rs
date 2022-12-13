@@ -95,4 +95,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     }
 
     let where_clause = if !where_conditions.is_empty() {
-        "WHERE ".to
+        "WHERE ".to_string() + &where_conditions.join(" AND ")
+    } else {
+        "".to_st
