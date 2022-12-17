@@ -104,4 +104,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     let order_by_clause = format!("ORDER BY timestamp {:?}", order_by);
 
     let limit = params.item_per_page.unwrap_or(100);
-    
+    let limit_clause = format!("LIMIT {}", limit);
+
+    // page starts from
