@@ -108,4 +108,7 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
 
     // page starts from 1
     let offset = params.page.unwrap_or(1) - 1;
-    let offset_clause = format!("OFFSET {}", offset * limit
+    let offset_clause = format!("OFFSET {}", offset * limit);
+
+    let query_string =
+        vec!["SELECT * FROM logs", &where_
