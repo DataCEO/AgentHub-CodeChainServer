@@ -111,4 +111,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     let offset_clause = format!("OFFSET {}", offset * limit);
 
     let query_string =
-        vec!["SELECT * FROM logs", &where_clause, &order_by_clause, &limit_clause, &offset_clause].join(" "
+        vec!["SELECT * FROM logs", &where_clause, &order_by_clause, &limit_clause, &offset_clause].join(" ");
+
+    let query_params: Vec<&ToSql> = parameters.get().iter(
