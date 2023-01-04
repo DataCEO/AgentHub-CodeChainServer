@@ -114,4 +114,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         vec!["SELECT * FROM logs", &where_clause, &order_by_clause, &limit_clause, &offset_clause].join(" ");
 
     let query_params: Vec<&ToSql> = parameters.get().iter().map(|param| param.borrow()).collect();
-    let rows = conn
+    let rows = conn.query(&query_string, &query_params[..])?;
+
+    Ok(rows
