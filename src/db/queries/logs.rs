@@ -117,3 +117,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
     let rows = conn.query(&query_string, &query_params[..])?;
 
     Ok(rows
+        .into_iter()
+        .map(|row| Log {
+            id: 
