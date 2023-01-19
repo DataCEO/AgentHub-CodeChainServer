@@ -120,4 +120,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         .into_iter()
         .map(|row| Log {
             id: row.get("id"),
-            node_name: ro
+            node_name: row.get("name"),
+            level: row.get("level"),
+            target:
