@@ -122,4 +122,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
             id: row.get("id"),
             node_name: row.get("name"),
             level: row.get("level"),
-            target:
+            target: row.get("target"),
+            timestamp: row.get("timestamp"),
+       
