@@ -129,4 +129,6 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
         .collect())
 }
 
-st
+struct Parameters {
+    parameter_count: i32,
+    parameters: Vec
