@@ -131,4 +131,9 @@ pub fn search(conn: &postgres::Connection, params: LogQueryParams) -> postgres::
 
 struct Parameters {
     parameter_count: i32,
-    parameters: Vec
+    parameters: Vec<Rc<ToSql>>,
+}
+
+impl Parameters {
+    pub fn new() -> Parameters {
+    
