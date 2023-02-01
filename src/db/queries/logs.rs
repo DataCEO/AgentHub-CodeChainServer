@@ -136,4 +136,6 @@ struct Parameters {
 
 impl Parameters {
     pub fn new() -> Parameters {
-    
+        Parameters {
+            parameter_count: 0,
+            parameters: Vec
