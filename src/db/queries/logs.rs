@@ -138,4 +138,8 @@ impl Parameters {
     pub fn new() -> Parameters {
         Parameters {
             parameter_count: 0,
-            parameters: Vec
+            parameters: Vec::new(),
+        }
+    }
+
+    pub fn add(&mut self
