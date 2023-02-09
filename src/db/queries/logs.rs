@@ -144,3 +144,6 @@ impl Parameters {
 
     pub fn add(&mut self, param: Rc<ToSql>) -> i32 {
         self.parameters.push(param);
+        self.parameter_count += 1;
+        self.parameter_count
+    
