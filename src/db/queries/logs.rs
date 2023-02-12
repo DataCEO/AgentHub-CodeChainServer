@@ -149,4 +149,8 @@ impl Parameters {
     }
 
     pub fn get(&self) -> &Vec<Rc<ToSql>> {
-        &self.para
+        &self.parameters
+    }
+}
+
+pub fn get_targets(conn: &postgres::Connecti
