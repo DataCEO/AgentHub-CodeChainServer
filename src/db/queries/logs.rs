@@ -146,4 +146,7 @@ impl Parameters {
         self.parameters.push(param);
         self.parameter_count += 1;
         self.parameter_count
-    
+    }
+
+    pub fn get(&self) -> &Vec<Rc<ToSql>> {
+        &self.para
