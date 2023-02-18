@@ -153,4 +153,5 @@ impl Parameters {
     }
 }
 
-pub fn get_targets(conn: &postgres::Connecti
+pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>> {
+    ctrace!("Query 
