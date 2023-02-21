@@ -156,4 +156,5 @@ impl Parameters {
 pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>> {
     ctrace!("Query targets");
 
-    //    let rows = conn.query("SELECT DISTINCT target
+    //    let rows = conn.query("SELECT DISTINCT target FROM logs", &[])?;
+    // Below query prints the 
