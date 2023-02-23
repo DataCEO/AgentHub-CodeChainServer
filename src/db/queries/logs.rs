@@ -161,4 +161,5 @@ pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>>
     // See https://wiki.postgresql.org/wiki/Loose_indexscan
     let rows = conn.query(
         "
-    WITH RE
+    WITH RECURSIVE t AS (
+       (SELECT target FROM logs ORDER BY target LIMIT 
