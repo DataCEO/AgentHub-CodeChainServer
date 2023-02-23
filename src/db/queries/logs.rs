@@ -158,4 +158,7 @@ pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>>
 
     //    let rows = conn.query("SELECT DISTINCT target FROM logs", &[])?;
     // Below query prints the same result with above query.
-    // See https://wiki.postgres
+    // See https://wiki.postgresql.org/wiki/Loose_indexscan
+    let rows = conn.query(
+        "
+    WITH RE
