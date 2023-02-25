@@ -166,4 +166,6 @@ pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>>
            UNION ALL
            SELECT (SELECT target FROM logs WHERE target > t.target ORDER BY target LIMIT 1)
            FROM t
-           WHERE t.target IS NOT N
+           WHERE t.target IS NOT NULL
+       )
+    SELECT target FROM t WHERE target IS NOT NUL
