@@ -168,4 +168,7 @@ pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>>
            FROM t
            WHERE t.target IS NOT NULL
        )
-    SELECT target FROM t WHERE target IS NOT NUL
+    SELECT target FROM t WHERE target IS NOT NULL",
+        &[],
+    )?;
+    Ok(rows.iter().map(|row| row.get(
