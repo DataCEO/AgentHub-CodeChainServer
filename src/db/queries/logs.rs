@@ -164,4 +164,6 @@ pub fn get_targets(conn: &postgres::Connection) -> postgres::Result<Vec<String>>
     WITH RECURSIVE t AS (
        (SELECT target FROM logs ORDER BY target LIMIT 1)  -- parentheses required
            UNION ALL
-           SELECT (SELECT target FROM logs WHERE target > t.target ORDER BY 
+           SELECT (SELECT target FROM logs WHERE target > t.target ORDER BY target LIMIT 1)
+           FROM t
+           WHERE t.target IS NOT N
