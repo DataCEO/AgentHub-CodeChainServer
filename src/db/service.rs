@@ -73,3 +73,81 @@ impl Service {
 
         let conn = postgres::Connection::connect(conn_uri, TlsMode::None).unwrap();
         queries::config::set_query_timeout(&conn).unwrap();
+
+        Self {
+            state: State::new(),
+            event_subscriber,
+            db_conn: conn,
+        }
+    }
+
+    pub fn run_thread(arg: ServiceNewArg) -> ServiceSender {
+        let (tx, rx) = channel();
+        let service_sender = ServiceSender::new(tx.clone());
+
+        let mut service = Service::new(arg);
+
+        thread::Builder::new()
+            .name("db service".to_string())
+            .spawn(move || {
+                for message in rx {
+                    match message {
+                        Message::InitializeAgent(agent_query_result, callback) => {
+                            service.initialize_agent(&agent_query_result, callback);
+                        }
+                        Message::UpdateAgent(agent_query_result) => {
+                            service.update_agent(*agent_query_result);
+                        }
+                        Message::GetAgent(node_name, callback) => {
+                            service.get_agent(&node_name, callback);
+                        }
+                        Message::GetAgents(callback) => {
+                            service.get_agents(callback);
+                        }
+                        Message::GetConnections(callback) => {
+                            service.get_connections(callback);
+                        }
+                        Message::SaveStartOption(node_name, env, args) => {
+                            util::log_error(&node_name, service.save_start_option(node_name.clone(), &env, &args));
+                        }
+                        Message::GetAgentExtra(node_name, callback) => {
+                            util::log_error(&node_name, service.get_agent_extra(&node_name, callback));
+                        }
+                        Message::GetLogs(params, callback) => {
+                            let result = service.get_logs(params, callback);
+                            if let Err(err) = result {
+                                cerror!("Error at {}", err);
+                            }
+                        }
+                        Message::WriteLogs(node_name, logs) => {
+                            let result = service.write_logs(&node_name, logs);
+                            if let Err(err) = result {
+                                cerror!("Error at {}", err);
+                            }
+                        }
+                        Message::GetLogTargets(callback) => {
+                            let result = service.get_log_targets(callback);
+                            if let Err(err) = result {
+                                cerror!("Error at {}", err);
+                            }
+                        }
+                    }
+                }
+            })
+            .expect("Should success running db service thread");
+
+        service_sender
+    }
+
+    fn initialize_agent(&mut self, state: &AgentQueryResult, callback: Sender<bool>) {
+        let name = state.name.clone();
+        let before = match self.state.agent_query_result.entry(name) {
+            Entry::Occupied(mut before) => before.into_mut(),
+            Entry::Vacant(e) => {
+                self.event_subscriber.on_event(Event::AgentUpdated {
+                    before: None.into(),
+                    after: state.clone().into(),
+                });
+                e.insert(state.clone());
+                if let Err(err) = callback.send(true) {
+                    cerror!("Cannot send callback : {}", err);
