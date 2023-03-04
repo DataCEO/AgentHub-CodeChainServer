@@ -216,3 +216,59 @@ impl Service {
             .agent_query_result
             .values()
             .find(|agent| agent.address.map(|agent_address| agent_address == *addr).unwrap_or(false));
+
+        find.map(|agent| agent.name.clone())
+    }
+
+    fn get_agent(&self, name: &str, callback: Sender<Option<AgentQueryResult>>) {
+        let agent_query_result = self.state.agent_query_result.get(name);
+        if let Err(err) = callback.send(agent_query_result.cloned()) {
+            cerror!("Cannot call calback get_agent, name: {}\nerr: {}", name, err);
+        }
+    }
+
+    fn get_agents(&self, callback: Sender<Vec<AgentQueryResult>>) {
+        let states = self.state.agent_query_result.values().cloned().collect();
+        if let Err(err) = callback.send(states) {
+            cerror!("Callback error {}", err);
+        }
+    }
+
+    fn get_connections(&self, callback: Sender<Vec<rpc_type::Connection>>) {
+        let connections: Vec<Connection> = self.state.connection.get_all();
+        let rpc_connections =
+            connections.iter().filter_map(|connection| self.socket_addrs_to_name(connection)).collect();
+        if let Err(err) = callback.send(rpc_connections) {
+            cerror!("Callback error {}", err);
+        }
+    }
+
+    fn save_start_option(&mut self, node_name: NodeName, env: &str, args: &str) -> Result<(), Box<error::Error>> {
+        let before_extra = queries::agent_extra::get(&self.db_conn, &node_name)?;
+        let mut extra = before_extra.clone().unwrap_or_default();
+
+        extra.prev_env = env.to_string();
+        extra.prev_args = args.to_string();
+
+        queries::agent_extra::upsert(&self.db_conn, &node_name, &extra)?;
+
+        self.event_subscriber.on_event(Event::AgentExtraUpdated {
+            name: node_name,
+            before: before_extra,
+            after: extra,
+        });
+
+        Ok(())
+    }
+
+    fn get_agent_extra(&self, node_name: &str, callback: Sender<Option<AgentExtra>>) -> Result<(), Box<error::Error>> {
+        let extra = queries::agent_extra::get(&self.db_conn, node_name)?;
+        if let Err(err) = callback.send(extra) {
+            cerror!("Callback error {}", err);
+        }
+        Ok(())
+    }
+
+    fn get_logs(&self, params: LogQueryParams, callback: Sender<Vec<Log>>) -> Result<(), Box<error::Error>> {
+        let logs = queries::logs::search(&self.db_conn, params)?;
+        callback.send(logs)?;
