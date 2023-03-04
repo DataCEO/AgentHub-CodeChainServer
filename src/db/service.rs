@@ -151,3 +151,68 @@ impl Service {
                 e.insert(state.clone());
                 if let Err(err) = callback.send(true) {
                     cerror!("Cannot send callback : {}", err);
+                }
+                return
+            }
+        };
+
+        if before.status != NodeStatus::Error {
+            cinfo!(
+                "Node {}({:?}) try to connect but a node with the same name already connected",
+                state.name,
+                before.status
+            );
+            if let Err(err) = callback.send(false) {
+                cerror!("Cannot send callback : {}", err);
+            }
+            return
+        }
+
+        self.event_subscriber.on_event(Event::AgentUpdated {
+            before: None.into(),
+            after: state.clone().into(),
+        });
+        *before = state.clone();
+        if let Err(err) = callback.send(true) {
+            cerror!("Cannot send callback : {}", err);
+        }
+    }
+
+    fn update_agent(&mut self, after: AgentQueryResult) {
+        let name = after.name.clone();
+        debug_assert_ne!(None, self.state.agent_query_result.get(&name));
+
+        {
+            let before = self.state.agent_query_result.get(&name).expect("Checked");
+
+            let (added, removed) = self.state.connection.update(before, &after);
+            if !added.is_empty() || !removed.is_empty() {
+                self.event_subscriber.on_event(Event::ConnectionChanged {
+                    added: added.iter().filter_map(|addrs| self.socket_addrs_to_name(addrs)).collect(),
+                    removed: removed.iter().filter_map(|addrs| self.socket_addrs_to_name(addrs)).collect(),
+                });
+            }
+
+            self.event_subscriber.on_event(Event::AgentUpdated {
+                before: Some(before.clone()).into(),
+                after: after.clone().into(),
+            });
+        }
+
+        let before = self.state.agent_query_result.get_mut(&name).expect("Checked");
+        *before = after;
+    }
+
+    fn socket_addrs_to_name(&self, addrs: &Connection) -> Option<rpc_type::Connection> {
+        let (first, second) = addrs;
+        let first_name = self.socket_addr_to_name(first);
+        let second_name = self.socket_addr_to_name(second);
+        first_name.and_then(|first_name| second_name.map(|second_name| (first_name, second_name)))
+    }
+
+    fn socket_addr_to_name(&self, addr: &SocketAddr) -> Option<NodeName> {
+        let find = self
+            .state
+            .agent_query_result
+            .values()
+            .find(|agent| agent.address.map(|agent_address| agent_address == *addr).unwrap_or(false));
