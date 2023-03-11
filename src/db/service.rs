@@ -337,3 +337,23 @@ impl ServiceSender {
         self.sender.send(Message::GetAgentExtra(node_name, tx)).expect("Should success send request");
         let agent_extra = rx.recv().map_err(|_| DBError::Timeout)?;
         Ok(agent_extra)
+    }
+
+    pub fn get_logs(&self, params: LogQueryParams) -> Result<Vec<Log>, DBError> {
+        let (tx, rx) = channel();
+        self.sender.send(Message::GetLogs(params, tx)).expect("Should success send request");
+        let logs = rx.recv().map_err(|_| DBError::Timeout)?;
+        Ok(logs)
+    }
+
+    pub fn write_logs(&self, node_name: NodeName, logs: Vec<StructuredLog>) {
+        self.sender.send(Message::WriteLogs(node_name, logs)).expect("Should success send request");
+    }
+
+    pub fn get_log_targets(&self) -> Result<Vec<String>, DBError> {
+        let (tx, rx) = channel();
+        self.sender.send(Message::GetLogTargets(tx)).expect("Should success");
+        let targets = rx.recv().map_err(|_| DBError::Timeout)?;
+        Ok(targets)
+    }
+}
