@@ -4,4 +4,5 @@ use std::fmt;
 use std::hash::{Hash, Hasher};
 use std::net::SocketAddr;
 
-use super::super::common_rpc_types:
+use super::super::common_rpc_types::{
+    BlackList, BlockId, HardwareInfo, NodeName, NodeStatus, 
