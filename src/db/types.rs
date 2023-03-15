@@ -9,4 +9,6 @@ use super::super::common_rpc_types::{
 };
 
 
-#[derive(PartialEq,
+#[derive(PartialEq, Clone, Debug, Default)]
+pub struct AgentQueryResult {
+    pub name:
