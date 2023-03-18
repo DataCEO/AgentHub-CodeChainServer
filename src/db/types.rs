@@ -11,4 +11,6 @@ use super::super::common_rpc_types::{
 
 #[derive(PartialEq, Clone, Debug, Default)]
 pub struct AgentQueryResult {
-    pub name:
+    pub name: NodeName,
+    pub status: NodeStatus,
+    pub address: Opt
