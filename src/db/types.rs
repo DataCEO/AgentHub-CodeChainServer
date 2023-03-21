@@ -13,4 +13,6 @@ use super::super::common_rpc_types::{
 pub struct AgentQueryResult {
     pub name: NodeName,
     pub status: NodeStatus,
-    pub address: Opt
+    pub address: Option<SocketAddr>,
+    pub peers: Vec<SocketAddr>,
+    pub best_block_id: O
