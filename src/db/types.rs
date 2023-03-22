@@ -19,4 +19,8 @@ pub struct AgentQueryResult {
     pub version: Option<NodeVersion>,
     pub pending_parcels: Vec<PendingParcel>,
     pub whitelist: Option<WhiteList>,
-    pub blacklist: Option<BlackList
+    pub blacklist: Option<BlackList>,
+    pub hardware: Option<HardwareInfo>,
+}
+
+#[derive(PartialEq, Clone
