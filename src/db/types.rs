@@ -15,4 +15,6 @@ pub struct AgentQueryResult {
     pub status: NodeStatus,
     pub address: Option<SocketAddr>,
     pub peers: Vec<SocketAddr>,
-    pub best_block_id: O
+    pub best_block_id: Option<BlockId>,
+    pub version: Option<NodeVersion>,
+  
