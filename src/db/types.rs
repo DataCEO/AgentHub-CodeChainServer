@@ -17,4 +17,5 @@ pub struct AgentQueryResult {
     pub peers: Vec<SocketAddr>,
     pub best_block_id: Option<BlockId>,
     pub version: Option<NodeVersion>,
-  
+    pub pending_parcels: Vec<PendingParcel>,
+    pub white
