@@ -18,4 +18,5 @@ pub struct AgentQueryResult {
     pub best_block_id: Option<BlockId>,
     pub version: Option<NodeVersion>,
     pub pending_parcels: Vec<PendingParcel>,
-    pub white
+    pub whitelist: Option<WhiteList>,
+    pub blacklist: Option<BlackList
