@@ -30,4 +30,6 @@ pub struct AgentExtra {
 }
 
 /**
- * T
+ * The Connection type shows which codechain node connects to whom.
+ */
+pub type
