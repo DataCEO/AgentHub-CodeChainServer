@@ -25,4 +25,9 @@ pub struct AgentQueryResult {
 
 #[derive(PartialEq, Clone, Debug, Default)]
 pub struct AgentExtra {
-    
+    pub prev_env: String,
+    pub prev_args: String,
+}
+
+/**
+ * T
