@@ -23,4 +23,6 @@ pub struct AgentQueryResult {
     pub hardware: Option<HardwareInfo>,
 }
 
-#[derive(PartialEq, Clone
+#[derive(PartialEq, Clone, Debug, Default)]
+pub struct AgentExtra {
+    
