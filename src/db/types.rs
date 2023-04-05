@@ -37,4 +37,9 @@ pub type Connection = (SocketAddr, SocketAddr);
 /**
  * Connections type shows which codechain node connects to whom in whole netowrk's
  */
-pub struct Connectio
+pub struct Connections {
+    data: HashSet<Connection>,
+}
+
+impl Connections {
+    pu
