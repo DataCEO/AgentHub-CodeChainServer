@@ -35,4 +35,6 @@ pub struct AgentExtra {
 pub type Connection = (SocketAddr, SocketAddr);
 
 /**
- * Connections type shows which codecha
+ * Connections type shows which codechain node connects to whom in whole netowrk's
+ */
+pub struct Connectio
