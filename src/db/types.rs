@@ -44,4 +44,9 @@ pub struct Connections {
 impl Connections {
     pub fn new() -> Self {
         Self {
-            data: HashSet::n
+            data: HashSet::new(),
+        }
+    }
+
+    pub fn update(
+        &mut sel
