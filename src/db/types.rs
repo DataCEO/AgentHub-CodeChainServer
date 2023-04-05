@@ -42,4 +42,6 @@ pub struct Connections {
 }
 
 impl Connections {
-    pu
+    pub fn new() -> Self {
+        Self {
+            data: HashSet::n
