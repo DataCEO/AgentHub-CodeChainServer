@@ -49,4 +49,6 @@ impl Connections {
     }
 
     pub fn update(
-        &mut sel
+        &mut self,
+        before: &AgentQueryResult,
+        after: &AgentQueryR
