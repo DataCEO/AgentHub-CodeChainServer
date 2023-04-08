@@ -51,4 +51,6 @@ impl Connections {
     pub fn update(
         &mut self,
         before: &AgentQueryResult,
-        after: &AgentQueryR
+        after: &AgentQueryResult,
+    ) -> (Vec<Connection>, Vec<Connection>) {
+        if before
