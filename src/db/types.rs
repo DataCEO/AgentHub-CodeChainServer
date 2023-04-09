@@ -53,4 +53,5 @@ impl Connections {
         before: &AgentQueryResult,
         after: &AgentQueryResult,
     ) -> (Vec<Connection>, Vec<Connection>) {
-        if before
+        if before.address.is_none() || after.address.is_none() {
+          
