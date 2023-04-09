@@ -57,4 +57,5 @@ impl Connections {
             return (Vec::new(), Vec::new())
         }
 
-        let added = Self::get_ad
+        let added = Self::get_added(before, after);
+        let removed = Self::get_removed(b
