@@ -54,4 +54,7 @@ impl Connections {
         after: &AgentQueryResult,
     ) -> (Vec<Connection>, Vec<Connection>) {
         if before.address.is_none() || after.address.is_none() {
-          
+            return (Vec::new(), Vec::new())
+        }
+
+        let added = Self::get_ad
