@@ -58,4 +58,7 @@ impl Connections {
         }
 
         let added = Self::get_added(before, after);
-        let removed = Self::get_removed(b
+        let removed = Self::get_removed(before, after);
+
+        let mut ret_added = Vec::new();
+        let
