@@ -61,4 +61,6 @@ impl Connections {
         let removed = Self::get_removed(before, after);
 
         let mut ret_added = Vec::new();
-        let
+        let mut ret_removed = Vec::new();
+
+        for added_element in
