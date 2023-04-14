@@ -69,4 +69,5 @@ impl Connections {
             }
         }
 
-       
+        for removed_element in removed {
+            if self.data.remove(
