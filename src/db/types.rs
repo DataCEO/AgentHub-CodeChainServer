@@ -65,4 +65,8 @@ impl Connections {
 
         for added_element in added {
             if self.data.insert(added_element) {
+                ret_added.push(added_element);
+            }
+        }
+
        
