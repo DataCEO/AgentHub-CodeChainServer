@@ -63,4 +63,6 @@ impl Connections {
         let mut ret_added = Vec::new();
         let mut ret_removed = Vec::new();
 
-        for added_element in
+        for added_element in added {
+            if self.data.insert(added_element) {
+       
