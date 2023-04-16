@@ -72,4 +72,7 @@ impl Connections {
         for removed_element in removed {
             if self.data.remove(&removed_element) {
                 ret_removed.push(removed_element);
-   
+            }
+        }
+
+        (ret_added, ret_rem
