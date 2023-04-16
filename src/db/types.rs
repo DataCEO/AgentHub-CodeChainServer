@@ -75,4 +75,7 @@ impl Connections {
             }
         }
 
-        (ret_added, ret_rem
+        (ret_added, ret_removed)
+    }
+
+    fn get_added(before: &AgentQueryResult, after: &AgentQ
