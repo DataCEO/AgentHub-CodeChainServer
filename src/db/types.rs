@@ -78,4 +78,5 @@ impl Connections {
         (ret_added, ret_removed)
     }
 
-    fn get_added(before: &AgentQueryResult, after: &AgentQ
+    fn get_added(before: &AgentQueryResult, after: &AgentQueryResult) -> Vec<Connection> {
+        let before_peers
