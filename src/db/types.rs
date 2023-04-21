@@ -84,4 +84,5 @@ impl Connections {
             .peers
             .iter()
             .filter(|peer| !before_peers.contains(*peer))
-            .map(|peer| 
+            .map(|peer| Self::make_tuple(after.address.unwrap(), *peer))
+         
