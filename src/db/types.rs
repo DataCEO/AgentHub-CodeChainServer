@@ -79,4 +79,5 @@ impl Connections {
     }
 
     fn get_added(before: &AgentQueryResult, after: &AgentQueryResult) -> Vec<Connection> {
-        let before_peers
+        let before_peers: HashSet<&SocketAddr> = before.peers.iter().collect();
+        after
