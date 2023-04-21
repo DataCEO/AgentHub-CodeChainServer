@@ -83,4 +83,5 @@ impl Connections {
         after
             .peers
             .iter()
-            .f
+            .filter(|peer| !before_peers.contains(*peer))
+            .map(|peer| 
