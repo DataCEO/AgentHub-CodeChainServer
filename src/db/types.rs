@@ -85,4 +85,7 @@ impl Connections {
             .iter()
             .filter(|peer| !before_peers.contains(*peer))
             .map(|peer| Self::make_tuple(after.address.unwrap(), *peer))
-         
+            .collect()
+    }
+
+    fn get_removed(before: &AgentQueryResul
