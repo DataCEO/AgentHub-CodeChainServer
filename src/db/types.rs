@@ -88,4 +88,5 @@ impl Connections {
             .collect()
     }
 
-    fn get_removed(before: &AgentQueryResul
+    fn get_removed(before: &AgentQueryResult, after: &AgentQueryResult) -> Vec<Connection> {
+        let after
