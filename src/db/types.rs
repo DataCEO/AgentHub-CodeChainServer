@@ -91,4 +91,6 @@ impl Connections {
     fn get_removed(before: &AgentQueryResult, after: &AgentQueryResult) -> Vec<Connection> {
         let after_peers: HashSet<&SocketAddr> = after.peers.iter().collect();
         before
- 
+            .peers
+            .iter()
+            .filter(|peer| !aft
