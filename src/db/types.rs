@@ -93,4 +93,5 @@ impl Connections {
         before
             .peers
             .iter()
-            .filter(|peer| !aft
+            .filter(|peer| !after_peers.contains(*peer))
+            .map(|peer| Self::make_tuple(after.add
