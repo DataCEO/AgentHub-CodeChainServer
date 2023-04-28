@@ -98,4 +98,5 @@ impl Connections {
             .collect()
     }
 
-    fn make
+    fn make_tuple(a: SocketAddr, b: SocketAddr) -> Connection {
+        
