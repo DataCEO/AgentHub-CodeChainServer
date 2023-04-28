@@ -94,4 +94,8 @@ impl Connections {
             .peers
             .iter()
             .filter(|peer| !after_peers.contains(*peer))
-            .map(|peer| Self::make_tuple(after.add
+            .map(|peer| Self::make_tuple(after.address.unwrap(), *peer))
+            .collect()
+    }
+
+    fn make
