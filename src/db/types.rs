@@ -100,4 +100,5 @@ impl Connections {
 
     fn make_tuple(a: SocketAddr, b: SocketAddr) -> Connection {
         let mut default_hasher = DefaultHasher::new();
-       
+        a.hash(&mut default_hasher);
+        let a_hash = default_hasher.finis
