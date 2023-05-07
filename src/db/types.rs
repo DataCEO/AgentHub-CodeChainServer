@@ -111,4 +111,7 @@ impl Connections {
             (a, b)
         } else {
             (b, a)
-     
+        }
+    }
+
+    pub fn get_all(&self) -> Vec<Connection> {
