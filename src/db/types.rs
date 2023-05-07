@@ -103,4 +103,6 @@ impl Connections {
         a.hash(&mut default_hasher);
         let a_hash = default_hasher.finish();
 
-        let mut default_hasher = DefaultHasher::new(
+        let mut default_hasher = DefaultHasher::new();
+        b.hash(&mut default_hasher);
+        l
