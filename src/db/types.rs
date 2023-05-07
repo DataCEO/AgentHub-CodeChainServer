@@ -107,4 +107,8 @@ impl Connections {
         b.hash(&mut default_hasher);
         let b_hash = default_hasher.finish();
 
-        if a_has
+        if a_hash < b_hash {
+            (a, b)
+        } else {
+            (b, a)
+     
