@@ -123,4 +123,6 @@ impl Connections {
 #[serde(rename_all = "camelCase")]
 pub struct LogQueryParams {
     pub filter: Option<LogFilter>,
-    pub sea
+    pub search: Option<String>,
+    pub time: Option<LogDuration>,
+    pub 
