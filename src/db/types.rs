@@ -119,4 +119,5 @@ impl Connections {
     }
 }
 
-#[der
+#[derive(Debug, Deserialize, Clone)]
+#[serde(rename_all = "camelCase")
