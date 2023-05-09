@@ -120,4 +120,7 @@ impl Connections {
 }
 
 #[derive(Debug, Deserialize, Clone)]
-#[serde(rename_all = "camelCase")
+#[serde(rename_all = "camelCase")]
+pub struct LogQueryParams {
+    pub filter: Option<LogFilter>,
+    pub sea
