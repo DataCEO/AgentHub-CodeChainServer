@@ -115,3 +115,8 @@ impl Connections {
     }
 
     pub fn get_all(&self) -> Vec<Connection> {
+        self.data.iter().cloned().collect()
+    }
+}
+
+#[der
