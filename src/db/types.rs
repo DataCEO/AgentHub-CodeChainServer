@@ -127,4 +127,7 @@ pub struct LogQueryParams {
     pub time: Option<LogDuration>,
     pub page: Option<i32>,
     pub item_per_page: Option<i32>,
-    pub order_b
+    pub order_by: Option<OrderBy>,
+}
+
+#[derive(Debug, Deserialize, Clone)]
