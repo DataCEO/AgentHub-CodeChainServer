@@ -125,4 +125,6 @@ pub struct LogQueryParams {
     pub filter: Option<LogFilter>,
     pub search: Option<String>,
     pub time: Option<LogDuration>,
-    pub 
+    pub page: Option<i32>,
+    pub item_per_page: Option<i32>,
+    pub order_b
