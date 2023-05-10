@@ -133,4 +133,6 @@ pub struct LogQueryParams {
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct LogFilter {
-    
+    pub node_names: Vec<String>,
+    pub levels: Vec<LogLevel>,
+  
