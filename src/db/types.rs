@@ -140,4 +140,9 @@ pub struct LogFilter {
 }
 
 #[derive(Debug, Deserialize, Clone)]
-#[serde(rename_all = "ca
+#[serde(rename_all = "camelCase")]
+pub enum LogLevel {
+    Error,
+    Warn,
+    Info,
+   
