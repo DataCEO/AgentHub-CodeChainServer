@@ -139,4 +139,5 @@ pub struct LogFilter {
     pub thread_name: Option<String>,
 }
 
-#[de
+#[derive(Debug, Deserialize, Clone)]
+#[serde(rename_all = "ca
