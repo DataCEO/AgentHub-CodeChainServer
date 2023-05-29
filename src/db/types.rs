@@ -145,4 +145,9 @@ pub enum LogLevel {
     Error,
     Warn,
     Info,
-   
+    Debug,
+    Trace,
+}
+
+impl fmt::Display for LogLevel {
+    fn f
