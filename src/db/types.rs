@@ -156,4 +156,6 @@ impl fmt::Display for LogLevel {
 }
 
 #[derive(Debug, Deserialize, Clone)]
-#[serde(re
+#[serde(rename_all = "camelCase")]
+pub struct LogDuration {
+    pub f
