@@ -158,4 +158,5 @@ impl fmt::Display for LogLevel {
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct LogDuration {
-    pub f
+    pub from_time: Option<chrono::DateTime<chrono::Local>>,
+    pub to_time: O
