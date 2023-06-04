@@ -162,4 +162,10 @@ pub struct LogDuration {
     pub to_time: Option<chrono::DateTime<chrono::Local>>,
 }
 
-#[derive(Debug, Deserialize,
+#[derive(Debug, Deserialize, Clone)]
+pub enum OrderBy {
+    ASC,
+    DESC,
+}
+
+#[derive(Debug, Ser
