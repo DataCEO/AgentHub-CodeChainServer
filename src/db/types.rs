@@ -173,4 +173,6 @@ pub enum OrderBy {
 pub struct Log {
     pub id: i64,
     pub node_name: String,
-   
+    pub level: String,
+    pub target: String,
+    pub timestamp: ch
