@@ -168,4 +168,6 @@ pub enum OrderBy {
     DESC,
 }
 
-#[derive(Debug, Ser
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Lo
