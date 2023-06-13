@@ -170,4 +170,7 @@ pub enum OrderBy {
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Lo
+pub struct Log {
+    pub id: i64,
+    pub node_name: String,
+   
