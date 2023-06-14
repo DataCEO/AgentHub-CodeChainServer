@@ -175,4 +175,5 @@ pub struct Log {
     pub node_name: String,
     pub level: String,
     pub target: String,
-    pub timestamp: ch
+    pub timestamp: chrono::DateTime<chrono::Local>,
+    pub message: String
