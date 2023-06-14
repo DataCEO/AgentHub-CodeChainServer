@@ -181,4 +181,5 @@ pub struct Log {
 
 #[derive(Debug, Clone)]
 pub enum Error {
-    Timeout
+    Timeout,
+}
