@@ -52,3 +52,61 @@ impl db::EventSubscriber for EventPropagator {
                     if before.status != after.status {
                         diff["status"] = serde_json::to_value(after.status).unwrap();
                     }
+                    if before.peers != after.peers {
+                        diff["peers"] = serde_json::to_value(after.peers).unwrap();
+                    }
+                    if before.best_block_id != after.best_block_id {
+                        diff["bestBlockId"] = serde_json::to_value(after.best_block_id).unwrap();
+                    }
+                    if before.version != after.version {
+                        diff["version"] = serde_json::to_value(after.version).unwrap();
+                    }
+                    if before.pending_parcels != after.pending_parcels {
+                        diff["pendingParcels"] = serde_json::to_value(after.pending_parcels).unwrap();
+                    }
+                    if before.whitelist != after.whitelist {
+                        diff["whitelist"] = serde_json::to_value(after.whitelist).unwrap();
+                    }
+                    if before.blacklist != after.blacklist {
+                        diff["blacklist"] = serde_json::to_value(after.blacklist).unwrap();
+                    }
+                    if before.hardware != after.hardware {
+                        diff["hardware"] = serde_json::to_value(after.hardware).unwrap();
+                    }
+                }
+
+                let message = jsonrpc::serialize_notification(
+                    "dashboard_updated",
+                    json!({
+                        "nodes": [diff.clone()]
+                    }),
+                );
+
+                self.frontend_service.send(frontend::Message::SendEvent(message)).expect("Should success send event");
+                let message = jsonrpc::serialize_notification("node_updated", diff);
+                self.frontend_service.send(frontend::Message::SendEvent(message)).expect("Should success send event");
+            }
+            db::Event::ConnectionChanged {
+                added,
+                removed,
+            } => {
+                let collection_added: Vec<Value> = added
+                    .iter()
+                    .map(|(first, second)| {
+                        json!({
+                            "nodeA": first,
+                            "nodeB": second,
+                        })
+                    })
+                    .collect();
+                let collection_removed: Vec<Value> = removed
+                    .iter()
+                    .map(|(first, second)| {
+                        json!({
+                            "nodeA": first,
+                            "nodeB": second,
+                        })
+                    })
+                    .collect();
+                let message = jsonrpc::serialize_notification(
+                    "dashboard_updated",
