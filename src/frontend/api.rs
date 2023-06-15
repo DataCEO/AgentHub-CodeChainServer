@@ -20,3 +20,62 @@ pub fn add_routing(router: &mut Router<Context>) {
         Box::new(dashboard_get_network as fn(Context) -> RPCResponse<DashboardGetNetworkResponse>),
     );
     router.add_route(
+        "node_start",
+        Box::new(node_start as fn(Context, (String, ShellStartCodeChainRequest)) -> RPCResponse<()>),
+    );
+    router.add_route("node_stop", Box::new(node_stop as fn(Context, (String,)) -> RPCResponse<()>));
+    router.add_route(
+        "node_update",
+        Box::new(node_update as fn(Context, (NodeName, UpdateCodeChainRequest)) -> RPCResponse<()>),
+    );
+    router.add_route("log_getTargets", Box::new(log_get_targets as fn(Context) -> RPCResponse<LogGetTargetsResponse>));
+    router.add_route("log_get", Box::new(log_get as fn(Context, (LogGetRequest,)) -> RPCResponse<LogGetResponse>));
+}
+
+fn ping(_: Context) -> RPCResponse<String> {
+    response("pong".to_string())
+}
+
+fn dashboard_get_network(context: Context) -> RPCResponse<DashboardGetNetworkResponse> {
+    let agents_state = context.db_service.get_agents_state()?;
+    let connections = context.db_service.get_connections()?;
+    let dashboard_nodes = agents_state.iter().map(|agent| DashboardNode::from_db_state(agent)).collect();
+    response(DashboardGetNetworkResponse {
+        nodes: dashboard_nodes,
+        connections: connections.iter().map(|connection| NodeConnection::from_connection(connection)).collect(),
+    })
+}
+
+fn node_get_info(context: Context, args: (String,)) -> RPCResponse<NodeGetInfoResponse> {
+    let (name,) = args;
+    let agent_query_result = context.db_service.get_agent_query_result(&name)?.ok_or(RPCError::AgentNotFound)?;
+    let extra = context.db_service.get_agent_extra(name)?;
+    response(NodeGetInfoResponse::from_db_state(&agent_query_result, &extra))
+}
+
+fn node_start(context: Context, args: (NodeName, ShellStartCodeChainRequest)) -> RPCResponse<()> {
+    let (name, req) = args;
+
+    let agent = context.agent_service.get_agent(name.clone());
+    if agent.is_none() {
+        return Err(RPCError::AgentNotFound)
+    }
+    let agent = agent.expect("Already checked");
+    agent.shell_start_codechain(req.clone())?;
+
+    context.db_service.save_start_option(name, &req.env, &req.args);
+
+    response(())
+}
+
+fn node_stop(context: Context, args: (String,)) -> RPCResponse<()> {
+    let (name,) = args;
+
+    let agent = context.agent_service.get_agent(name);
+    if agent.is_none() {
+        return Err(RPCError::AgentNotFound)
+    }
+    let agent = agent.expect("Already checked");
+    agent.shell_stop_codechain()?;
+
+    response(())
