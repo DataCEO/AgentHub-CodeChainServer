@@ -79,3 +79,40 @@ fn node_stop(context: Context, args: (String,)) -> RPCResponse<()> {
     agent.shell_stop_codechain()?;
 
     response(())
+}
+
+fn node_update(context: Context, args: (NodeName, UpdateCodeChainRequest)) -> RPCResponse<()> {
+    let (name, req) = args;
+
+    let agent = context.agent_service.get_agent(name.clone());
+    if agent.is_none() {
+        return Err(RPCError::AgentNotFound)
+    }
+    let agent = agent.expect("Already checked");
+
+    let extra = context.db_service.get_agent_extra(name)?;
+    agent.shell_update_codechain((
+        ShellStartCodeChainRequest {
+            env: extra.as_ref().map(|extra| extra.prev_env.clone()).unwrap_or_default(),
+            args: extra.as_ref().map(|extra| extra.prev_args.clone()).unwrap_or_default(),
+        },
+        req,
+    ))?;
+
+    response(())
+}
+
+fn log_get_targets(context: Context) -> RPCResponse<LogGetTargetsResponse> {
+    let targets = context.db_service.get_log_targets()?;
+    response(LogGetTargetsResponse {
+        targets,
+    })
+}
+
+fn log_get(context: Context, args: (LogGetRequest,)) -> RPCResponse<LogGetResponse> {
+    let (req,) = args;
+    let logs = context.db_service.get_logs(req)?;
+    response(LogGetResponse {
+        logs,
+    })
+}
