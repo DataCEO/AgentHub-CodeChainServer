@@ -9,3 +9,7 @@ pub struct Service {
 }
 
 pub type ServiceSender = Sender<Message>;
+
+pub enum Message {
+    AddWS(ws::Sender),
+    RemoveWS(ws::Sender)
