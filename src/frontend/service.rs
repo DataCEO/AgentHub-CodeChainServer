@@ -12,4 +12,9 @@ pub type ServiceSender = Sender<Message>;
 
 pub enum Message {
     AddWS(ws::Sender),
-    RemoveWS(ws::Sender)
+    RemoveWS(ws::Sender),
+    SendEvent(String),
+}
+
+impl Service {
+    pub fn run_thread() -> Service
