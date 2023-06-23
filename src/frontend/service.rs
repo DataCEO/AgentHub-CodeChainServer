@@ -17,4 +17,6 @@ pub enum Message {
 }
 
 impl Service {
-    pub fn run_thread() -> Service
+    pub fn run_thread() -> ServiceSender {
+        let (tx, rx) = channel();
+      
