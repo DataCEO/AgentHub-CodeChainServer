@@ -21,4 +21,7 @@ impl Service {
         let (tx, rx) = channel();
         let service_sender = tx.clone();
 
-        let mut service 
+        let mut service = Service::new();
+
+        thread::Builder::new()
+          
