@@ -24,4 +24,6 @@ impl Service {
         let mut service = Service::new();
 
         thread::Builder::new()
-          
+            .name("frontend service".to_string())
+            .spawn(move || {
+      
