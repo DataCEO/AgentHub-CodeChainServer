@@ -26,4 +26,6 @@ impl Service {
         thread::Builder::new()
             .name("frontend service".to_string())
             .spawn(move || {
-      
+                for message in rx {
+                    match message {
+  
