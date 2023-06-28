@@ -29,4 +29,6 @@ impl Service {
                 for message in rx {
                     match message {
                         Message::SendEvent(jsonrpc_data) => {
-                            service.send_event(jsonrpc_data
+                            service.send_event(jsonrpc_data);
+                        }
+                        Message::AddW
