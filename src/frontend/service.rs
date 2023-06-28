@@ -28,4 +28,5 @@ impl Service {
             .spawn(move || {
                 for message in rx {
                     match message {
-                        Message::SendEvent(jsonrpc_dat
+                        Message::SendEvent(jsonrpc_data) => {
+                            service.send_event(jsonrpc_data
