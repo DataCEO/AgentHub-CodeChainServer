@@ -31,4 +31,5 @@ impl Service {
                         Message::SendEvent(jsonrpc_data) => {
                             service.send_event(jsonrpc_data);
                         }
-                        Message::AddW
+                        Message::AddWS(web_socket) => {
+                            service.add_ws(
