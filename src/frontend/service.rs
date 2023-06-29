@@ -32,4 +32,6 @@ impl Service {
                             service.send_event(jsonrpc_data);
                         }
                         Message::AddWS(web_socket) => {
-                            service.add_ws(
+                            service.add_ws(web_socket);
+                        }
+                        Message::RemoveWS(w
