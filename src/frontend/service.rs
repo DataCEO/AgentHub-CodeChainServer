@@ -35,4 +35,6 @@ impl Service {
                             service.add_ws(web_socket);
                         }
                         Message::RemoveWS(web_socket) => {
-                            service.remove_ws(web_socke
+                            service.remove_ws(web_socket);
+                        }
+                  
