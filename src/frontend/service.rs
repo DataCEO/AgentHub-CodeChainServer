@@ -37,4 +37,7 @@ impl Service {
                         Message::RemoveWS(web_socket) => {
                             service.remove_ws(web_socket);
                         }
-                  
+                    }
+                }
+            })
+            .expect("Sh
