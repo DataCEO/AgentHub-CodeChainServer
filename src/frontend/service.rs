@@ -40,4 +40,7 @@ impl Service {
                     }
                 }
             })
-            .expect("Sh
+            .expect("Should success running agent service thread");
+
+        service_sender
+ 
