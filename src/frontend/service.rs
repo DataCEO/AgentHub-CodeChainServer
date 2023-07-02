@@ -43,4 +43,9 @@ impl Service {
             .expect("Should success running agent service thread");
 
         service_sender
- 
+    }
+}
+
+
+impl Service {
+    pub fn new() -> S
