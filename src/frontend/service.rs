@@ -54,4 +54,6 @@ impl Service {
         }
     }
 
-    pub fn send_event(&mut self, data: S
+    pub fn send_event(&mut self, data: String) {
+        for web_socket in &self.web_sockets {
+    
