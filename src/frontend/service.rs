@@ -51,4 +51,7 @@ impl Service {
     pub fn new() -> Self {
         Self {
             web_sockets: Vec::new(),
-     
+        }
+    }
+
+    pub fn send_event(&mut self, data: S
