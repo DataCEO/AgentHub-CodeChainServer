@@ -48,4 +48,7 @@ impl Service {
 
 
 impl Service {
-    pub fn new() -> S
+    pub fn new() -> Self {
+        Self {
+            web_sockets: Vec::new(),
+     
