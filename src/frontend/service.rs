@@ -57,4 +57,5 @@ impl Service {
     pub fn send_event(&mut self, data: String) {
         for web_socket in &self.web_sockets {
             if let Err(err) = web_socket.send(data.clone()) {
-   
+                cwarn!("Error when sending event to frontend {}", err);
+          
