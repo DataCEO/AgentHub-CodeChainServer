@@ -58,4 +58,8 @@ impl Service {
         for web_socket in &self.web_sockets {
             if let Err(err) = web_socket.send(data.clone()) {
                 cwarn!("Error when sending event to frontend {}", err);
-          
+            }
+        }
+    }
+
+    pub fn add_ws(&mut self, web_soc
