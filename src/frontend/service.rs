@@ -62,4 +62,5 @@ impl Service {
         }
     }
 
-    pub fn add_ws(&mut self, web_soc
+    pub fn add_ws(&mut self, web_socket: ws::Sender) {
+        debug_assert_eq!(false, self.web_soc
