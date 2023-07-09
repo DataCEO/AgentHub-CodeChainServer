@@ -65,4 +65,6 @@ impl Service {
     pub fn add_ws(&mut self, web_socket: ws::Sender) {
         debug_assert_eq!(false, self.web_sockets.contains(&web_socket));
         self.web_sockets.push(web_socket);
-  
+    }
+
+    pub fn remove_ws(&mut self, web_socket: ws::Se
