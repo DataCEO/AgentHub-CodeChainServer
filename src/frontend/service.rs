@@ -67,4 +67,5 @@ impl Service {
         self.web_sockets.push(web_socket);
     }
 
-    pub fn remove_ws(&mut self, web_socket: ws::Se
+    pub fn remove_ws(&mut self, web_socket: ws::Sender) {
+        debug_assert_eq!(true, self.web_sockets.co
