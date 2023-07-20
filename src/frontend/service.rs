@@ -69,4 +69,6 @@ impl Service {
 
     pub fn remove_ws(&mut self, web_socket: ws::Sender) {
         debug_assert_eq!(true, self.web_sockets.contains(&web_socket));
-        let index = self.web_sockets.iter().position(|web_socket_iter| *web_socket_iter == web
+        let index = self.web_sockets.iter().position(|web_socket_iter| *web_socket_iter == web_socket);
+        match index {
+            None => cerror!
