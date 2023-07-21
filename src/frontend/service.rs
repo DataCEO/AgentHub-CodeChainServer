@@ -71,4 +71,6 @@ impl Service {
         debug_assert_eq!(true, self.web_sockets.contains(&web_socket));
         let index = self.web_sockets.iter().position(|web_socket_iter| *web_socket_iter == web_socket);
         match index {
-            None => cerror!("Cannot find websocket to delete, {:?}", web_soc
+            None => cerror!("Cannot find websocket to delete, {:?}", web_socket.token()),
+            Some(index) => {
+                sel
