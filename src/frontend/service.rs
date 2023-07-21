@@ -73,4 +73,8 @@ impl Service {
         match index {
             None => cerror!("Cannot find websocket to delete, {:?}", web_socket.token()),
             Some(index) => {
-                sel
+                self.web_sockets.remove(index);
+            }
+        }
+    }
+}
