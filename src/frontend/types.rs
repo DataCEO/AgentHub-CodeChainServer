@@ -1,4 +1,6 @@
 use std::net::SocketAddr;
 
 use super::super::agent;
-use super::super::com
+use super::super::common_rpc_types;
+use super::super::common_rpc_types::{
+    BlackList,
