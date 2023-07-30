@@ -9,4 +9,6 @@ use super::super::db;
 
 #[derive(Clone)]
 pub struct Context {
-    pub agent_service: a
+    pub agent_service: agent::ServiceSender,
+    pub db_service: db::ServiceSender,
+    pub passphrase: St
