@@ -6,3 +6,7 @@ use super::super::common_rpc_types::{
     BlackList, BlockId, HardwareInfo, HardwareUsage, NodeName, NodeStatus, NodeVersion, PendingParcel, WhiteList,
 };
 use super::super::db;
+
+#[derive(Clone)]
+pub struct Context {
+    pub agent_service: a
