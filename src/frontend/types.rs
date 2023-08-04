@@ -17,4 +17,7 @@ pub struct Context {
 pub type Event = String;
 
 #[derive(Debug, Serialize)]
-#[serde(
+#[serde(rename_all = "camelCase")]
+#[serde(untagged)]
+pub enum DashboardNode {
+ 
