@@ -22,4 +22,6 @@ pub type Event = String;
 pub enum DashboardNode {
     #[serde(rename_all = "camelCase")]
     Normal {
-        status: NodeStat
+        status: NodeStatus,
+        address: Option<SocketAddr>,
+        version: Opt
