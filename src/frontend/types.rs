@@ -20,4 +20,6 @@ pub type Event = String;
 #[serde(rename_all = "camelCase")]
 #[serde(untagged)]
 pub enum DashboardNode {
- 
+    #[serde(rename_all = "camelCase")]
+    Normal {
+        status: NodeStat
