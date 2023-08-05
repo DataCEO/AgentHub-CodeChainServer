@@ -24,4 +24,5 @@ pub enum DashboardNode {
     Normal {
         status: NodeStatus,
         address: Option<SocketAddr>,
-        version: Opt
+        version: Option<NodeVersion>,
+        best_block_id: Option<Bl
