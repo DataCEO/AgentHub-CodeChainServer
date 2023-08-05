@@ -25,4 +25,7 @@ pub enum DashboardNode {
         status: NodeStatus,
         address: Option<SocketAddr>,
         version: Option<NodeVersion>,
-        best_block_id: Option<Bl
+        best_block_id: Option<BlockId>,
+        name: NodeName,
+    },
+    #[serde(rename_a
