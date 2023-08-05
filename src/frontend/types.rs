@@ -28,4 +28,7 @@ pub enum DashboardNode {
         best_block_id: Option<BlockId>,
         name: NodeName,
     },
-    #[serde(rename_a
+    #[serde(rename_all = "camelCase")]
+    #[allow(dead_code)]
+    UFO {
+        sta
