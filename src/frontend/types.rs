@@ -33,4 +33,9 @@ pub enum DashboardNode {
     UFO {
         status: NodeStatus,
         name: NodeName,
-        add
+        address: Option<SocketAddr>,
+    },
+}
+
+impl DashboardNode {
+    
