@@ -38,4 +38,5 @@ pub enum DashboardNode {
 }
 
 impl DashboardNode {
-    
+    pub fn from_db_state(state: &db::AgentQueryResult) -> Self {
+     
