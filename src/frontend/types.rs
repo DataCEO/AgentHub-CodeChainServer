@@ -42,4 +42,6 @@ impl DashboardNode {
         DashboardNode::Normal {
             status: state.status,
             name: state.name.clone(),
-            address: state.add
+            address: state.address,
+            version: state.version.clone(),
+            best_blo
