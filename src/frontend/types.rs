@@ -40,4 +40,6 @@ pub enum DashboardNode {
 impl DashboardNode {
     pub fn from_db_state(state: &db::AgentQueryResult) -> Self {
         DashboardNode::Normal {
-            status
+            status: state.status,
+            name: state.name.clone(),
+            address: state.add
