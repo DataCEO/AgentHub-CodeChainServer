@@ -44,4 +44,10 @@ impl DashboardNode {
             name: state.name.clone(),
             address: state.address,
             version: state.version.clone(),
-            best_blo
+            best_block_id: state.best_block_id,
+        }
+    }
+}
+
+#[derive(Debug, Serialize)]
+#[serde(re
