@@ -50,4 +50,6 @@ impl DashboardNode {
 }
 
 #[derive(Debug, Serialize)]
-#[serde(re
+#[serde(rename_all = "camelCase")]
+pub struct NodeConnection {
+    pub node_a: S
