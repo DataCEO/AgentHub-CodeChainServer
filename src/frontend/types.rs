@@ -52,4 +52,9 @@ impl DashboardNode {
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct NodeConnection {
-    pub node_a: S
+    pub node_a: String,
+    pub node_b: String,
+}
+
+impl NodeConnection {
+    pub f
