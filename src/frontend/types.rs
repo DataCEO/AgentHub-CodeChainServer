@@ -58,4 +58,6 @@ pub struct NodeConnection {
 
 impl NodeConnection {
     pub fn from_connection(connection: &common_rpc_types::Connection) -> Self {
-       
+        let (node_a, node_b) = connection;
+        Self {
+            no
