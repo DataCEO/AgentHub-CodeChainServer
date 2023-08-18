@@ -57,4 +57,5 @@ pub struct NodeConnection {
 }
 
 impl NodeConnection {
-    pub f
+    pub fn from_connection(connection: &common_rpc_types::Connection) -> Self {
+       
