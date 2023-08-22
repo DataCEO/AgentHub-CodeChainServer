@@ -67,4 +67,6 @@ impl NodeConnection {
 }
 
 #[derive(Debug, Serialize)]
-#[serde(rename_all = "camelCas
+#[serde(rename_all = "camelCase")]
+pub struct DashboardGetNetworkResponse {
+    pub nodes: Vec<D
