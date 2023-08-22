@@ -63,4 +63,8 @@ impl NodeConnection {
             node_a: node_a.clone(),
             node_b: node_b.clone(),
         }
-    
+    }
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCas
