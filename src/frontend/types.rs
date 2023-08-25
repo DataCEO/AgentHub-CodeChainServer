@@ -73,4 +73,6 @@ pub struct DashboardGetNetworkResponse {
     pub connections: Vec<NodeConnection>,
 }
 
-#[
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub s
