@@ -78,3 +78,8 @@ pub struct DashboardGetNetworkResponse {
 pub struct StartOption {
     pub env: String,
     pub args: String,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub 
