@@ -84,4 +84,6 @@ pub struct StartOption {
 #[serde(rename_all = "camelCase")]
 pub struct NodeGetInfoResponse {
     pub name: NodeName,
-  
+    pub status: NodeStatus,
+    pub start_option: Option<StartOption>,
+    pub a
