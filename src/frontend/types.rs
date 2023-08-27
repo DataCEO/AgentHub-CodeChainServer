@@ -82,4 +82,6 @@ pub struct StartOption {
 
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub 
+pub struct NodeGetInfoResponse {
+    pub name: NodeName,
+  
