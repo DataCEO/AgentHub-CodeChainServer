@@ -86,4 +86,7 @@ pub struct NodeGetInfoResponse {
     pub name: NodeName,
     pub status: NodeStatus,
     pub start_option: Option<StartOption>,
-    pub a
+    pub address: Option<SocketAddr>,
+    pub version: Option<NodeVersion>,
+    pub best_block_id: Option<BlockId>,
+    pub pending_parcels: Vec<Pend
