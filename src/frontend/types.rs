@@ -91,4 +91,6 @@ pub struct NodeGetInfoResponse {
     pub best_block_id: Option<BlockId>,
     pub pending_parcels: Vec<PendingParcel>,
     pub peers: Vec<SocketAddr>,
-    pub whitelist: Option<W
+    pub whitelist: Option<WhiteList>,
+    pub blacklist: Option<BlackList>,
+    pub hardware: Opt
