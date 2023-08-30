@@ -93,4 +93,5 @@ pub struct NodeGetInfoResponse {
     pub peers: Vec<SocketAddr>,
     pub whitelist: Option<WhiteList>,
     pub blacklist: Option<BlackList>,
-    pub hardware: Opt
+    pub hardware: Option<HardwareInfo>,
+    pub events: Vec<Event>,
