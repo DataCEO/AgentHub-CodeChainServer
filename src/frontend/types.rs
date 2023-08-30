@@ -95,3 +95,8 @@ pub struct NodeGetInfoResponse {
     pub blacklist: Option<BlackList>,
     pub hardware: Option<HardwareInfo>,
     pub events: Vec<Event>,
+}
+
+impl NodeGetInfoResponse {
+    fn dummy() -> Self {
+   
