@@ -99,4 +99,5 @@ pub struct NodeGetInfoResponse {
 
 impl NodeGetInfoResponse {
     fn dummy() -> Self {
-   
+        NodeGetInfoResponse {
+            name: "Dummy".to_string(),
