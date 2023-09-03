@@ -102,4 +102,5 @@ impl NodeGetInfoResponse {
         NodeGetInfoResponse {
             name: "Dummy".to_string(),
             address: Some("127.0.0.1:3485".parse().unwrap()),
-      
+            version: Some(NodeVersion {
+                version: "0.1.0".to
