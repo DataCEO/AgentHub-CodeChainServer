@@ -101,3 +101,5 @@ impl NodeGetInfoResponse {
     fn dummy() -> Self {
         NodeGetInfoResponse {
             name: "Dummy".to_string(),
+            address: Some("127.0.0.1:3485".parse().unwrap()),
+      
