@@ -103,4 +103,5 @@ impl NodeGetInfoResponse {
             name: "Dummy".to_string(),
             address: Some("127.0.0.1:3485".parse().unwrap()),
             version: Some(NodeVersion {
-                version: "0.1.0".to
+                version: "0.1.0".to_string(),
+                hash: "d6fb3195876b6b175902d25dd621db9952
