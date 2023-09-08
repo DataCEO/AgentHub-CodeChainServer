@@ -109,4 +109,6 @@ impl NodeGetInfoResponse {
             }),
             status: NodeStatus::Run,
             start_option: None,
-            best_block_id: Some(Bloc
+            best_block_id: Some(BlockId {
+                block_number: 0,
+              
