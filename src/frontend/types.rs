@@ -108,4 +108,5 @@ impl NodeGetInfoResponse {
                 binary_checksum: "".to_string(),
             }),
             status: NodeStatus::Run,
-      
+            start_option: None,
+            best_block_id: Some(Bloc
