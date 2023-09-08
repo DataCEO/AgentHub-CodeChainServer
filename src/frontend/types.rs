@@ -111,4 +111,6 @@ impl NodeGetInfoResponse {
             start_option: None,
             best_block_id: Some(BlockId {
                 block_number: 0,
-              
+                hash: Default::default(),
+            }),
+            pending_parcel
