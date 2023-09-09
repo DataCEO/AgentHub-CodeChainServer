@@ -113,4 +113,6 @@ impl NodeGetInfoResponse {
                 block_number: 0,
                 hash: Default::default(),
             }),
-            pending_parcel
+            pending_parcels: Vec::new(),
+            peers: Vec::new(),
+         
