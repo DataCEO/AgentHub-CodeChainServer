@@ -120,4 +120,6 @@ impl NodeGetInfoResponse {
                 enabled: false,
             }),
             blacklist: Some(BlackList {
-                list
+                list: Vec::new(),
+                enabled: false,
+       
