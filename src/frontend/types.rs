@@ -116,4 +116,7 @@ impl NodeGetInfoResponse {
             pending_parcels: Vec::new(),
             peers: Vec::new(),
             whitelist: Some(WhiteList {
-                list: Vec::ne
+                list: Vec::new(),
+                enabled: false,
+            }),
+    
