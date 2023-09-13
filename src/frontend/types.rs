@@ -124,4 +124,5 @@ impl NodeGetInfoResponse {
                 enabled: false,
             }),
             hardware: Some(HardwareInfo {
-                cpu
+                cpu_usage: vec![0.34, 0.03, 0.58],
+                disk_usage: Ha
