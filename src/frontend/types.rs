@@ -125,4 +125,5 @@ impl NodeGetInfoResponse {
             }),
             hardware: Some(HardwareInfo {
                 cpu_usage: vec![0.34, 0.03, 0.58],
-                disk_usage: Ha
+                disk_usage: HardwareUsage {
+                    total: 8 * 1000 * 
