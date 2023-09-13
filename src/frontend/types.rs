@@ -122,4 +122,6 @@ impl NodeGetInfoResponse {
             blacklist: Some(BlackList {
                 list: Vec::new(),
                 enabled: false,
-       
+            }),
+            hardware: Some(HardwareInfo {
+                cpu
