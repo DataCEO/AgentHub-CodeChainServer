@@ -131,4 +131,5 @@ impl NodeGetInfoResponse {
                     percentage_used: 0.6,
                 },
                 memory_usage: HardwareUsage {
-                 
+                    total: 8 * 1000 * 1000 * 1000,
+                    available: 5 * 1000 *
