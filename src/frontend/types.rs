@@ -136,4 +136,4 @@ impl NodeGetInfoResponse {
                     percentage_used: 0.6,
                 },
             }),
-            events: vec!
+            events: vec!["Network connected".to_string(), "Block received".to_strin
