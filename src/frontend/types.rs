@@ -133,4 +133,7 @@ impl NodeGetInfoResponse {
                 memory_usage: HardwareUsage {
                     total: 8 * 1000 * 1000 * 1000,
                     available: 5 * 1000 * 1000 * 1000,
-                    percentage_used:
+                    percentage_used: 0.6,
+                },
+            }),
+            events: vec!
