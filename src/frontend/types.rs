@@ -141,4 +141,5 @@ impl NodeGetInfoResponse {
     }
 
     pub fn from_db_state(state: &db::AgentQueryResult, extra: &Option<db::AgentExtra>) -> Self {
-   
+        let mut dummy = Self::dummy();
+        dummy.address
