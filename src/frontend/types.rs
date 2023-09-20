@@ -136,4 +136,8 @@ impl NodeGetInfoResponse {
                     percentage_used: 0.6,
                 },
             }),
-            events: vec!["Network connected".to_string(), "Block received".to_strin
+            events: vec!["Network connected".to_string(), "Block received".to_string()],
+        }
+    }
+
+    pub fn from_db_state(state: &db::AgentQu
