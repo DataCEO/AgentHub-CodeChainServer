@@ -140,4 +140,5 @@ impl NodeGetInfoResponse {
         }
     }
 
-    pub fn from_db_state(state: &db::AgentQu
+    pub fn from_db_state(state: &db::AgentQueryResult, extra: &Option<db::AgentExtra>) -> Self {
+   
