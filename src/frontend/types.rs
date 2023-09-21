@@ -144,4 +144,6 @@ impl NodeGetInfoResponse {
         let mut dummy = Self::dummy();
         dummy.address = state.address;
         dummy.status = state.status;
-        dummy
+        dummy.name = state.name.clone();
+        dummy.peers = state.peers.clone();
+       
