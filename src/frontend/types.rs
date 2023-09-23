@@ -148,4 +148,5 @@ impl NodeGetInfoResponse {
         dummy.peers = state.peers.clone();
         dummy.best_block_id = state.best_block_id;
         dummy.version = state.version.clone();
-        dummy.pending_pa
+        dummy.pending_parcels = state.pending_parcels.clone();
+        dummy.whitelis
