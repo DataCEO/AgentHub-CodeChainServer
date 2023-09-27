@@ -150,4 +150,5 @@ impl NodeGetInfoResponse {
         dummy.version = state.version.clone();
         dummy.pending_parcels = state.pending_parcels.clone();
         dummy.whitelist = state.whitelist.clone();
-        dummy.blacklist = state.b
+        dummy.blacklist = state.blacklist.clone();
+        dummy.start_option = extra.as_ref().map(|ex
