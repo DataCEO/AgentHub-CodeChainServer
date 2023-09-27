@@ -149,4 +149,5 @@ impl NodeGetInfoResponse {
         dummy.best_block_id = state.best_block_id;
         dummy.version = state.version.clone();
         dummy.pending_parcels = state.pending_parcels.clone();
-        dummy.whitelis
+        dummy.whitelist = state.whitelist.clone();
+        dummy.blacklist = state.b
