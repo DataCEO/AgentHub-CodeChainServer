@@ -153,4 +153,6 @@ impl NodeGetInfoResponse {
         dummy.blacklist = state.blacklist.clone();
         dummy.start_option = extra.as_ref().map(|extra| StartOption {
             env: extra.prev_env.clone(),
-  
+            args: extra.prev_args.clone(),
+        });
+        dummy.hard
