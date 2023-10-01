@@ -155,4 +155,9 @@ impl NodeGetInfoResponse {
             env: extra.prev_env.clone(),
             args: extra.prev_args.clone(),
         });
-        dummy.hard
+        dummy.hardware = state.hardware.clone();
+        dummy
+    }
+}
+
+#[derive(Debug,
