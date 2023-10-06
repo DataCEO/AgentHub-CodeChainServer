@@ -168,4 +168,6 @@ pub struct LogGetTargetsResponse {
 
 pub type LogGetRequest = db::LogQueryParams;
 
-#[derive(Debug, Serialize
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LogGetResponse {
