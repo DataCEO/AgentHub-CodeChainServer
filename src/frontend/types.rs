@@ -166,4 +166,6 @@ pub struct LogGetTargetsResponse {
     pub targets: Vec<String>,
 }
 
-pub type LogGe
+pub type LogGetRequest = db::LogQueryParams;
+
+#[derive(Debug, Serialize
