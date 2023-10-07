@@ -155,3 +155,68 @@ impl From<RecvError> for CallError {
 
 impl From<SerdeError> for CallError {
     fn from(error: SerdeError) -> Self {
+        CallError::InternalSerde(error)
+    }
+}
+
+impl<T> From<PoisonError<T>> for CallError {
+    fn from(error: PoisonError<T>) -> Self {
+        CallError::InternalSync(format!("{:?}", error))
+    }
+}
+
+impl From<JSONRPCError> for CallError {
+    fn from(error: JSONRPCError) -> Self {
+        CallError::Response(error)
+    }
+}
+
+impl From<RecvTimeoutError> for CallError {
+    fn from(error: RecvTimeoutError) -> Self {
+        CallError::Timeout(error)
+    }
+}
+
+pub fn call_no_arg<Res>(context: Context, method: &str) -> Result<Res, CallError>
+where
+    Res: DeserializeOwned, {
+    call_one_arg(context, method, Value::Null)
+}
+
+pub fn call_one_arg<Arg, Res>(context: Context, method: &str, arg: Arg) -> Result<Res, CallError>
+where
+    Arg: Serialize,
+    Res: DeserializeOwned, {
+    call_many_args(context, method, vec![arg])
+}
+
+pub fn call_many_args<Arg, Res>(context: Context, method: &str, args: Arg) -> Result<Res, CallError>
+where
+    Arg: Serialize,
+    Res: DeserializeOwned, {
+    let (tx, rx) = channel();
+    let args_value = serde_json::to_value(args)?;
+    let id = rand::random();
+    let request = MethodCall {
+        jsonrpc: Some(Version::V2),
+        method: method.to_string(),
+        params: Some(Params::Array(args_value.as_array().expect("This should be an array").clone())),
+        id: Id::Num(id),
+    };
+    let serialized_request = serde_json::to_string(&request)?;
+    context.add_callback(id, tx);
+    ctrace!("send JSONRPC {}", serialized_request);
+    context.ws_sender.send(Message::Text(serialized_request))?;
+    let receive_result = rx.recv_timeout(Duration::new(10, 0));
+    context.remove_callback(id);
+    let received_string = receive_result?;
+    ctrace!("Receive JSONRPC {}", received_string);
+
+    let res = serde_json::from_str(&received_string)?;
+
+    match res {
+        Output::Success(success) => {
+            let result = serde_json::from_value(success.result)?;
+            Ok(result)
+        }
+        Output::Failure(failure) => Err(failure.error.into()),
