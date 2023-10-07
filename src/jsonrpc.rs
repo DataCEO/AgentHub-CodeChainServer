@@ -89,3 +89,69 @@ where
                             error: err.to_jsonrpc_error(),
                         }
                         .into(),
+                    )
+                }
+            }
+        }
+        Ok(Call::Notification(_)) => None,
+    };
+    response.map(|response| serde_json::to_string(&response).expect("Should success serialize"))
+}
+
+pub fn invalid_format() -> String {
+    serde_json::to_string(&Failure {
+        jsonrpc: None,
+        id: Id::Null,
+        error: JSONRPCError::new(ErrorCode::ParseError),
+    })
+    .expect("Should success serialize")
+}
+
+#[derive(Clone)]
+pub struct Context {
+    pub ws_sender: WSSender,
+    pub ws_callback: Arc<Mutex<HashMap<u64, Sender<String>>>>,
+}
+
+impl Context {
+    pub fn new(sender: WSSender) -> Self {
+        Self {
+            ws_sender: sender,
+            ws_callback: Arc::new(Mutex::new(HashMap::new())),
+        }
+    }
+
+    pub fn add_callback(&self, id: u64, callback: Sender<String>) {
+        let mut ws_callback = self.ws_callback.lock();
+        ws_callback.insert(id, callback);
+    }
+
+    pub fn remove_callback(&self, id: u64) {
+        let mut ws_callback = self.ws_callback.lock();
+        ws_callback.remove(&id);
+    }
+}
+
+pub enum CallError {
+    InternalWS(WSError),
+    InternalRecv(RecvError),
+    InternalSerde(SerdeError),
+    InternalSync(String),
+    Response(JSONRPCError),
+    Timeout(RecvTimeoutError),
+}
+
+impl From<WSError> for CallError {
+    fn from(error: WSError) -> Self {
+        CallError::InternalWS(error)
+    }
+}
+
+impl From<RecvError> for CallError {
+    fn from(error: RecvError) -> Self {
+        CallError::InternalRecv(error)
+    }
+}
+
+impl From<SerdeError> for CallError {
+    fn from(error: SerdeError) -> Self {
