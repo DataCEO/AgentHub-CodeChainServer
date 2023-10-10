@@ -220,3 +220,70 @@ where
             Ok(result)
         }
         Output::Failure(failure) => Err(failure.error.into()),
+    }
+}
+
+pub fn serialize_notification<Arg>(method: &str, arg: Arg) -> String
+where
+    Arg: Serialize, {
+    let arg_value = serde_json::to_value(arg).expect("Should success serialization");
+    let arg_object = arg_value.as_object().unwrap();
+    let noti = Notification {
+        jsonrpc: Some(Version::V2),
+        method: method.to_string(),
+        params: Some(Params::Map(arg_object.clone())),
+    };
+    serde_json::to_string(&noti).expect("Should success serialize")
+}
+
+// Called on websocket thread
+pub fn on_receive(context: Context, text: String) {
+    match on_receive_internal(context, text) {
+        Ok(_) => {}
+        Err(err) => cerror!("{}", err),
+    }
+}
+
+fn on_receive_internal(context: Context, text: String) -> Result<(), String> {
+    let json_parsed_result: Output = serde_json::from_str(&text)
+        .map_err(|err| format!("Cannot parse response from agent, data is {}\n{}", text.clone(), err))?;
+
+    let id = json_parsed_result.id();
+    let id = match id {
+        Id::Null => Err(id),
+        Id::Str(_) => Err(id),
+        Id::Num(id) => Ok(id),
+    }
+    .map_err(|id| format!("Invalid id {:#?}", id))?;
+
+    let mut ws_callback = context.ws_callback.lock();
+    let result = {
+        let callback = ws_callback.get_mut(&id).ok_or_else(|| format!("Invalid id {}", id))?;
+        callback
+            .send(text.clone())
+            .map_err(|err| format!("Callback call failed, response was {}\n{}", text.clone(), err))
+    };
+    ws_callback.remove(&id);
+    result
+}
+
+impl fmt::Display for CallError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            CallError::InternalWS(err) => write!(f, "Call Internal Error {}", err),
+            CallError::InternalRecv(err) => write!(f, "Call Internal Error {}", err),
+            CallError::InternalSerde(err) => write!(f, "Call Internal Error {}", err),
+            CallError::InternalSync(err) => write!(f, "Call Internal Error {}", err),
+            CallError::Response(err) => write!(f, "JSONRPC error {:?}", err),
+            CallError::Timeout(err) => write!(f, "Timeout {}", err),
+        }
+    }
+}
+
+impl fmt::Debug for CallError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        fmt::Display::fmt(self, f)
+    }
+}
+
+impl Error for CallError {}
