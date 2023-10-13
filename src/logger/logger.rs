@@ -9,4 +9,9 @@ use super::time;
 use log::{LevelFilter, Log, Metadata, Record};
 
 pub struct Logger {
-    fi
+    filter: Filter,
+}
+
+impl Logger {
+    pub fn new() -> Self {
+       
