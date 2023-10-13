@@ -6,4 +6,7 @@ use super::colored::Colorize;
 use super::env_logger::filter::{Builder as FilterBuilder, Filter};
 use super::time;
 
-use 
+use log::{LevelFilter, Log, Metadata, Record};
+
+pub struct Logger {
+    fi
