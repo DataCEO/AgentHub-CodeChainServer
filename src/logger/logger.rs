@@ -14,4 +14,5 @@ pub struct Logger {
 
 impl Logger {
     pub fn new() -> Self {
-       
+        let mut builder = FilterBuilder::new();
+        buil
