@@ -15,4 +15,6 @@ pub struct Logger {
 impl Logger {
     pub fn new() -> Self {
         let mut builder = FilterBuilder::new();
-        buil
+        builder.filter(None, LevelFilter::Info);
+
+        if let Ok(rust_log) = 
