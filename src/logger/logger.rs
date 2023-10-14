@@ -17,4 +17,8 @@ impl Logger {
         let mut builder = FilterBuilder::new();
         builder.filter(None, LevelFilter::Info);
 
-        if let Ok(rust_log) = 
+        if let Ok(rust_log) = env::var("RUST_LOG") {
+            builder.parse(&rust_log);
+        }
+
+    
