@@ -27,4 +27,9 @@ impl Logger {
     }
 
     pub fn filter(&self) -> LevelFilter {
-        self.filter.fil
+        self.filter.filter()
+    }
+}
+
+impl Log for Logger {
+    fn enabled(&
