@@ -24,4 +24,7 @@ impl Logger {
         Self {
             filter: builder.build(),
         }
-  
+    }
+
+    pub fn filter(&self) -> LevelFilter {
+        self.filter.fil
