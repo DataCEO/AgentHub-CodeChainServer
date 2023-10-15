@@ -32,4 +32,5 @@ impl Logger {
 }
 
 impl Log for Logger {
-    fn enabled(&
+    fn enabled(&self, metadata: &Metadata) -> bool {
+        self.filter.enabled(metada
