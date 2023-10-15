@@ -21,4 +21,7 @@ impl Logger {
             builder.parse(&rust_log);
         }
 
-    
+        Self {
+            filter: builder.build(),
+        }
+  
