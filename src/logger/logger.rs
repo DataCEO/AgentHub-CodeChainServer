@@ -37,4 +37,5 @@ impl Log for Logger {
     }
 
     fn log(&self, record: &Record) {
-        if se
+        if self.filter.matches(record) {
+            let thread_name = thread::current().name().unwrap_
