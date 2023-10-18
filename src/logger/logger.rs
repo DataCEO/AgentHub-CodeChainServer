@@ -41,4 +41,5 @@ impl Log for Logger {
             let thread_name = thread::current().name().unwrap_or_default().to_string();
             let timestamp = time::strftime("%Y-%m-%d %H:%M:%S %Z", &time::now()).unwrap();
 
-            let stderr_
+            let stderr_isatty = atty::is(atty::Stream::Stderr);
+            let timestamp = if 
