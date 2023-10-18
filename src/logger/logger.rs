@@ -42,4 +42,6 @@ impl Log for Logger {
             let timestamp = time::strftime("%Y-%m-%d %H:%M:%S %Z", &time::now()).unwrap();
 
             let stderr_isatty = atty::is(atty::Stream::Stderr);
-            let timestamp = if 
+            let timestamp = if stderr_isatty {
+                timestamp.bold()
+            } el
