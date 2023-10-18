@@ -39,4 +39,6 @@ impl Log for Logger {
     fn log(&self, record: &Record) {
         if self.filter.matches(record) {
             let thread_name = thread::current().name().unwrap_or_default().to_string();
-            let timestamp = time::strftime("%
+            let timestamp = time::strftime("%Y-%m-%d %H:%M:%S %Z", &time::now()).unwrap();
+
+            let stderr_
