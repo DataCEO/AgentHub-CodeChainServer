@@ -47,4 +47,5 @@ impl Log for Logger {
             } else {
                 timestamp.normal()
             };
-         
+            let thread_name = if stderr_isatty {
+      
