@@ -44,4 +44,7 @@ impl Log for Logger {
             let stderr_isatty = atty::is(atty::Stream::Stderr);
             let timestamp = if stderr_isatty {
                 timestamp.bold()
-            } el
+            } else {
+                timestamp.normal()
+            };
+         
