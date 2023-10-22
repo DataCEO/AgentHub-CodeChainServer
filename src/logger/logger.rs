@@ -48,4 +48,6 @@ impl Log for Logger {
                 timestamp.normal()
             };
             let thread_name = if stderr_isatty {
-      
+                thread_name.blue().bold()
+            } else {
+           
