@@ -52,4 +52,6 @@ impl Log for Logger {
             } else {
                 thread_name.normal()
             };
-            let log_leve
+            let log_level = record.level();
+            let log_target = record.target();
+            
