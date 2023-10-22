@@ -50,4 +50,6 @@ impl Log for Logger {
             let thread_name = if stderr_isatty {
                 thread_name.blue().bold()
             } else {
-           
+                thread_name.normal()
+            };
+            let log_leve
