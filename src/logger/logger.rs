@@ -55,4 +55,4 @@ impl Log for Logger {
             let log_level = record.level();
             let log_target = record.target();
             let log_message = record.args();
-            eprintln!("#{} {
+            eprintln!("#{} {} {} {}  {}", timestamp, thread_name, log_level, log_tar
