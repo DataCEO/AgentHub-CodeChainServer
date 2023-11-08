@@ -6,4 +6,9 @@ extern crate time;
 #[cfg_attr(feature = "cargo-clippy", allow(clippy::module_inception))]
 mod logger;
 #[macro_use]
-pub mod m
+pub mod macros;
+
+pub use log::Level;
+
+use self::logger::Logger;
+u
