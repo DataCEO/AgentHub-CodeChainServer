@@ -11,4 +11,6 @@ pub mod macros;
 pub use log::Level;
 
 use self::logger::Logger;
-u
+use log::SetLoggerError;
+
+pub fn init() -> Result<(), SetLogger
