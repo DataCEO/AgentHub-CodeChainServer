@@ -13,4 +13,6 @@ pub use log::Level;
 use self::logger::Logger;
 use log::SetLoggerError;
 
-pub fn init() -> Result<(), SetLogger
+pub fn init() -> Result<(), SetLoggerError> {
+    let logger = Logger::new();
+    super::log
