@@ -15,4 +15,5 @@ use log::SetLoggerError;
 
 pub fn init() -> Result<(), SetLoggerError> {
     let logger = Logger::new();
-    super::log
+    super::log::set_max_level(logger.filter());
+    super::log::set_bo
