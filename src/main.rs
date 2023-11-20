@@ -151,3 +151,16 @@ struct WebError {
 impl WebError {
     #[allow(dead_code)]
     fn new(s: &str) -> Self {
+        WebError {
+            value: s.to_string(),
+        }
+    }
+}
+
+impl fmt::Display for WebError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+impl std::error::Error for WebError {}
