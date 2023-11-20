@@ -87,3 +87,67 @@ fn main() {
         .name("agent listen".to_string())
         .spawn(move || {
             let count = Rc::new(Cell::new(0));
+            listen("0.0.0.0:4012", |out| {
+                agent::WebSocketHandler::new(out, count.clone(), agent_service_sender.clone())
+            })
+            .unwrap();
+        })
+        .expect("Should success listening agent");
+
+    let webserver_join = thread::Builder::new()
+        .name("webserver".to_string())
+        .spawn(move || {
+            let _server = Iron::new(web_handler).http("0.0.0.0:5012").unwrap();
+            cinfo!("Webserver listening on 5012");
+        })
+        .expect("Should success open webserver");
+
+    frontend_join.join().expect("Join frotend listner");
+    agent_join.join().expect("Join agent listner");
+    webserver_join.join().expect("Join webserver");
+}
+
+struct WebHandler {
+    #[allow(dead_code)]
+    agent_service_sender: Mutex<agent::ServiceSender>,
+}
+
+impl WebHandler {
+    fn new(agent_service_sender: agent::ServiceSender) -> Self {
+        Self {
+            agent_service_sender: Mutex::new(agent_service_sender),
+        }
+    }
+}
+
+impl iron::Handler for WebHandler {
+    fn handle(&self, req: &mut iron::Request) -> IronResult<iron::Response> {
+        let paths = req.url.path();
+        if paths.len() != 2 {
+            cwarn!("Invalid web request {}", req.url);
+            return Ok(Response::with(status::NotFound))
+        }
+
+        if paths.get(0).expect("Already checked") != &"log" {
+            cwarn!("Invalid web request {}", req.url);
+            return Ok(Response::with(status::NotFound))
+        }
+
+        let node_name = *paths.get(1).expect("Already checked");
+        ctrace!("Get log for agent-{}", node_name);
+
+        use iron::mime;
+        let content_type = "text/plain".parse::<mime::Mime>().unwrap();
+        Ok(Response::with((content_type, status::Ok, "")))
+    }
+}
+
+#[derive(Debug)]
+#[allow(dead_code)]
+struct WebError {
+    value: String,
+}
+
+impl WebError {
+    #[allow(dead_code)]
+    fn new(s: &str) -> Self {
