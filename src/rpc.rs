@@ -1,2 +1,5 @@
 use std::error::Error;
-u
+use std::fmt;
+use std::result::Result;
+
+use jsonrpc_core::types::{Error
