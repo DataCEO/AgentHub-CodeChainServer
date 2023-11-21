@@ -44,3 +44,37 @@ where
         if let Some(result) = result {
             let value_result = serde_json::to_value(result)?;
             Ok(Some(value_result))
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+pub enum Error {
+    MethodNotFound,
+    RPC(RPCError),
+}
+
+impl<C> Router<C> {
+    pub fn new() -> Self {
+        let table: HashMap<&'static str, Box<Route<Context = C>>> = HashMap::new();
+        Self {
+            table,
+        }
+    }
+
+    pub fn add_route(&mut self, method: &'static str, route: Box<Route<Context = C>>) {
+        self.table.insert(method, route);
+    }
+
+    pub fn run(&self, context: C, method: &str, arg: Value) -> Result<Option<Value>, Error> {
+        let route = self.table.get(method);
+        match route {
+            None => Err(Error::MethodNotFound),
+            Some(route) => match route.run(context, arg) {
+                Ok(value) => Ok(value),
+                Err(err) => Err(Error::RPC(err)),
+            },
+        }
+    }
+}
