@@ -10,4 +10,7 @@ use super::jsonrpc;
 
 pub type RPCResponse<T> = Result<Option<T>, RPCError>;
 
-pub type RPCResult<
+pub type RPCResult<T> = Result<T, RPCError>;
+
+pub enum RPCError {
+    Internal(
