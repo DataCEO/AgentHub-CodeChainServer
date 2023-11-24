@@ -8,4 +8,6 @@ use serde_json::{Error as SerdeError, Value};
 use super::db::Error as DBError;
 use super::jsonrpc;
 
-pub type 
+pub type RPCResponse<T> = Result<Option<T>, RPCError>;
+
+pub type RPCResult<
