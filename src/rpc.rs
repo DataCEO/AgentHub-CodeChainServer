@@ -13,4 +13,11 @@ pub type RPCResponse<T> = Result<Option<T>, RPCError>;
 pub type RPCResult<T> = Result<T, RPCError>;
 
 pub enum RPCError {
-    Internal(
+    Internal(String),
+    FromAgent(JSONRPCError),
+    FromDB(DBError),
+
+    AgentNotFound,
+}
+
+im
