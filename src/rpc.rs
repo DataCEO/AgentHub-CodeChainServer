@@ -20,4 +20,5 @@ pub enum RPCError {
     AgentNotFound,
 }
 
-im
+impl fmt::Display for RPCError {
+    fn fmt(&self, f: &mut fmt::F
