@@ -24,4 +24,5 @@ impl fmt::Display for RPCError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
             RPCError::Internal(err) => write!(f, "RPCError {}", err),
-            RPCError::FromAgent(err) => write!(f, "JSONRPCError 
+            RPCError::FromAgent(err) => write!(f, "JSONRPCError from Agent {:?}", err),
+            RPCError::FromDB(err) 
