@@ -26,4 +26,5 @@ impl fmt::Display for RPCError {
             RPCError::Internal(err) => write!(f, "RPCError {}", err),
             RPCError::FromAgent(err) => write!(f, "JSONRPCError from Agent {:?}", err),
             RPCError::FromDB(err) => write!(f, "JSONRPCError from DB {:?}", err),
-      
+            RPCError::AgentNotFound => write!(f, "Agent not found"),
+        
