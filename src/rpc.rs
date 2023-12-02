@@ -39,4 +39,8 @@ impl fmt::Debug for RPCError {
 
 impl Error for RPCError {}
 
-pub fn response<T>(va
+pub fn response<T>(value: T) -> RPCResponse<T> {
+    Ok(Some(value))
+}
+
+const ERR_
