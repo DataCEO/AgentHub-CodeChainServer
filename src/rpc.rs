@@ -34,4 +34,9 @@ impl fmt::Display for RPCError {
 impl fmt::Debug for RPCError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         fmt::Display::fmt(self, f)
- 
+    }
+}
+
+impl Error for RPCError {}
+
+pub fn response<T>(va
