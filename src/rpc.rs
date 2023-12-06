@@ -48,4 +48,5 @@ const ERR_AGENT_NOT_FOUND: i64 = -1;
 impl RPCError {
     pub fn to_jsonrpc_error(&self) -> JSONRPCError {
         match self {
-           
+            RPCError::Internal(str) => Self::create_internal_rpc_error(str),
+ 
