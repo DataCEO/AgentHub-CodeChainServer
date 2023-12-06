@@ -43,4 +43,7 @@ pub fn response<T>(value: T) -> RPCResponse<T> {
     Ok(Some(value))
 }
 
-const ERR_
+const ERR_AGENT_NOT_FOUND: i64 = -1;
+
+impl RPCError {
+    pub fn to_jsonrpc_error(&s
