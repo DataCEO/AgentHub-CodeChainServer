@@ -51,4 +51,5 @@ impl RPCError {
             RPCError::Internal(str) => Self::create_internal_rpc_error(str),
             RPCError::FromAgent(err) => {
                 let mut error = err.clone();
-                error.da
+                error.data = match error.data {
+                    None => Some(json!("E
