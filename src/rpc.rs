@@ -52,4 +52,5 @@ impl RPCError {
             RPCError::FromAgent(err) => {
                 let mut error = err.clone();
                 error.data = match error.data {
-                    None => Some(json!("E
+                    None => Some(json!("Error from agent")),
+                    Some(inner_data) => 
