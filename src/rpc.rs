@@ -59,4 +59,5 @@ impl RPCError {
                     })),
                 };
                 error
-  
+            }
+            RPCError::FromDB(_err) => Self::create_internal_rpc_erro
