@@ -54,4 +54,5 @@ impl RPCError {
                 error.data = match error.data {
                     None => Some(json!("Error from agent")),
                     Some(inner_data) => Some(json!({
-                        "message": "This error i
+                        "message": "This error is from the agent",
+                        "inner": inner_data,
