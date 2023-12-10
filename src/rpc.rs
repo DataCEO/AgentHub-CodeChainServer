@@ -56,3 +56,7 @@ impl RPCError {
                     Some(inner_data) => Some(json!({
                         "message": "This error is from the agent",
                         "inner": inner_data,
+                    })),
+                };
+                error
+  
