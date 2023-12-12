@@ -61,4 +61,4 @@ impl RPCError {
                 error
             }
             RPCError::FromDB(_err) => Self::create_internal_rpc_error(&self.to_string()),
-            RPCError::AgentNotFound => Self::cr
+            RPCError::AgentNotFound => Self::create_rpc_error(ERR_AGENT_NOT_FOUND, &format!(
