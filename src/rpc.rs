@@ -67,4 +67,8 @@ impl RPCError {
 
     fn create_internal_rpc_error(msg: &str) -> JSONRPCError {
         let mut ret = JSONRPCError::new(ErrorCode::InternalError);
-        ret.data = Some(Value::Stri
+        ret.data = Some(Value::String(msg.to_string()));
+        ret
+    }
+
+    fn create_rpc_error(code:
