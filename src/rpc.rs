@@ -65,4 +65,5 @@ impl RPCError {
         }
     }
 
-    fn create_internal_rpc_error(ms
+    fn create_internal_rpc_error(msg: &str) -> JSONRPCError {
+        let mut ret = JSONRPCError::new
