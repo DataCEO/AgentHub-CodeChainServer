@@ -71,4 +71,5 @@ impl RPCError {
         ret
     }
 
-    fn create_rpc_error(code:
+    fn create_rpc_error(code: i64, msg: &str) -> JSONRPCError {
+        let mut ret = JSONRPCEr
