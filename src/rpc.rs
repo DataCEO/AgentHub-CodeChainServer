@@ -73,4 +73,9 @@ impl RPCError {
 
     fn create_rpc_error(code: i64, msg: &str) -> JSONRPCError {
         let mut ret = JSONRPCError::new(ErrorCode::ServerError(code));
-        ret.message 
+        ret.message = msg.to_string();
+        ret
+    }
+}
+
+impl From<SerdeErr
