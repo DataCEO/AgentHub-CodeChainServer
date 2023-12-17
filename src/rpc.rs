@@ -78,4 +78,6 @@ impl RPCError {
     }
 }
 
-impl From<SerdeErr
+impl From<SerdeError> for RPCError {
+    fn from(err: SerdeError) -> Self {
+      
