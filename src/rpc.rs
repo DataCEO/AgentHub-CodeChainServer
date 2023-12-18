@@ -80,4 +80,8 @@ impl RPCError {
 
 impl From<SerdeError> for RPCError {
     fn from(err: SerdeError) -> Self {
-        RPCError::Internal(format!("Internal error about JSON serialize/de
+        RPCError::Internal(format!("Internal error about JSON serialize/deserialize : {:?}", err))
+    }
+}
+
+impl From<jsonrpc::
