@@ -84,4 +84,5 @@ impl From<SerdeError> for RPCError {
     }
 }
 
-impl From<jsonrpc::
+impl From<jsonrpc::CallError> for RPCError {
+    fn from(err: jsonrpc::CallE
