@@ -88,4 +88,4 @@ impl From<jsonrpc::CallError> for RPCError {
     fn from(err: jsonrpc::CallError) -> Self {
         match err {
             jsonrpc::CallError::Response(jsonrpc_error) => RPCError::FromAgent(jsonrpc_error),
-      
+            _ => RPCError::Internal(format!("Internal error about jsonrpc call
