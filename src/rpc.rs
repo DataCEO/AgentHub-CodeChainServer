@@ -94,4 +94,6 @@ impl From<jsonrpc::CallError> for RPCError {
 }
 
 impl From<DBError> for RPCError {
+    fn from(err: DBError) -> Self {
+        RPCError::FromDB(err)
    
